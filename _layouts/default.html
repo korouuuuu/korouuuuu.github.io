@@ -27,30 +27,9 @@
     <style>
         .icon-search { width: 20px; height: 20px; stroke: currentColor; stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
         .icon-menu { width: 24px; height: 24px; stroke: currentColor; stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-        
-        /* * 新增：
-         * 1. 平滑滚动
-         * 2. 加载更多 CSS
-        */
-
-        /* 1. 平滑滚动 */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* 2. 加载更多 CSS */
-        #blog-grid > article {
-            transition: all 0.4s ease-in-out;
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* 默认隐藏第7个(n+7)及之后的所有文章 */
-        #blog-grid > article:nth-child(n+7) {
-            display: none;
-            opacity: 0;
-            transform: translateY(20px);
-        }
+        html { scroll-behavior: smooth; }
+        #blog-grid > article { transition: all 0.4s ease-in-out; opacity: 1; transform: translateY(0); }
+        #blog-grid > article:nth-child(n+7) { display: none; opacity: 0; transform: translateY(20px); }
     </style>
 </head>
 <body class="font-sans bg-white text-gray-900">
@@ -66,10 +45,11 @@
     <script>
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+        if(menuBtn){
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
     </script>
 
     <script>
@@ -77,47 +57,88 @@
         const loadMoreBtn = document.getElementById('load-more-btn');
         const blogGrid = document.getElementById('blog-grid');
         
-        if (!loadMoreBtn || !blogGrid) return; // 如果不在首页，则退出
+        if (!loadMoreBtn || !blogGrid) return;
 
         const postsPerLoad = 6;
         let currentlyShown = 6;
-        
-        // 获取网格中所有的文章卡片
         const allPosts = blogGrid.querySelectorAll('article');
 
-        // 检查：如果总文章数小于等于6，直接隐藏“加载更多”按钮
         if (allPosts.length <= currentlyShown) {
             loadMoreBtn.style.display = 'none';
-            return; // 退出
+            return;
         }
 
         loadMoreBtn.addEventListener('click', (e) => {
-            e.preventDefault(); // 阻止a标签的默认跳转
-            
+            e.preventDefault();
             const nextShow = currentlyShown + postsPerLoad;
-
-            // 循环显示接下来的6个
             for (let i = currentlyShown; i < nextShow && i < allPosts.length; i++) {
-                
-                // (1) 立即更改 display
                 allPosts[i].style.display = 'block'; 
-                
-                // (2) 延迟一小下再触发 CSS 动画
                 setTimeout(() => {
                     allPosts[i].style.opacity = '1';
                     allPosts[i].style.transform = 'translateY(0)';
                 }, 10);
             }
-            
-            // 更新当前已显示的计数
             currentlyShown = nextShow;
-
-            // 如果已显示的数量 >= 总数，隐藏按钮
             if (currentlyShown >= allPosts.length) {
                 loadMoreBtn.style.display = 'none';
             }
         });
     });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
+
+    <script>
+        // 2. 处理搜索遮罩层的打开和关闭
+        const searchTrigger = document.getElementById('search-trigger');
+        const searchOverlay = document.getElementById('search-overlay');
+        const searchClose = document.getElementById('search-close');
+        const searchInput = document.getElementById('search-input');
+
+        if(searchTrigger && searchOverlay && searchClose) {
+            // 打开搜索
+            searchTrigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                searchOverlay.classList.remove('hidden');
+                // 自动聚焦到输入框
+                setTimeout(() => searchInput.focus(), 100);
+            });
+
+            // 关闭搜索
+            searchClose.addEventListener('click', () => {
+                searchOverlay.classList.add('hidden');
+            });
+
+            // 按 ESC 键也可以关闭
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !searchOverlay.classList.contains('hidden')) {
+                    searchOverlay.classList.add('hidden');
+                }
+            });
+        }
+
+        // 3. 初始化 Simple Jekyll Search
+        // 它会自动抓取 search.json 并根据输入框的内容渲染结果
+        if(document.getElementById('search-input')) {
+            SimpleJekyllSearch({
+                searchInput: document.getElementById('search-input'),
+                resultsContainer: document.getElementById('results-container'),
+                json: '{{ "/search.json" | relative_url }}',
+                searchResultTemplate: `
+                    <li class="border-b border-gray-800 pb-4 animate-fade-in">
+                        <a href="{url}" class="block group">
+                            <span class="text-sm text-gray-500 mb-1 block">{date}</span>
+                            <h3 class="text-2xl font-serif text-white group-hover:text-blue-400 transition-colors">
+                                {title}
+                            </h3>
+                        </a>
+                    </li>
+                `,
+                noResultsText: '<li class="text-gray-500 text-lg">没有找到相关文章...</li>',
+                limit: 10,
+                fuzzy: false
+            });
+        }
     </script>
 
 </body>
