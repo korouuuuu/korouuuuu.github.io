@@ -4,7 +4,7 @@
         <a href="{{ "/" | relative_url }}" class="font-bold text-xl tracking-wider hover:opacity-80 transition-opacity">MyBlog</a>
         
         <div class="hidden md:flex items-center space-x-8">
-            <a href="#" class="text-white hover:opacity-80 transition-opacity">关于我</a>
+            <a href="{{ '/about.html' | relative_url }}" class="text-white hover:opacity-80 transition-opacity">关于我</a>
             
             <button id="search-trigger" class="text-white hover:opacity-80 transition-opacity focus:outline-none">
                 <svg class="icon-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
@@ -18,7 +18,7 @@
 </nav>
 
 <div id="mobile-menu" class="hidden md:hidden fixed inset-0 bg-gray-900 bg-opacity-95 z-40 flex flex-col items-center justify-center space-y-6 text-2xl text-white">
-    <a href="#">关于我</a>
+    <a href="{{ '/about.html' | relative_url }}">关于我</a>
     </div>
 
 <div id="search-overlay" class="hidden fixed inset-0 bg-gray-900 bg-opacity-95 z-50 flex flex-col items-center pt-32 px-4">
