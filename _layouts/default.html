@@ -27,6 +27,30 @@
     <style>
         .icon-search { width: 20px; height: 20px; stroke: currentColor; stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
         .icon-menu { width: 24px; height: 24px; stroke: currentColor; stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+        
+        /* * 新增：
+         * 1. 平滑滚动
+         * 2. 加载更多 CSS
+        */
+
+        /* 1. 平滑滚动 */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* 2. 加载更多 CSS */
+        #blog-grid > article {
+            transition: all 0.4s ease-in-out;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 默认隐藏第7个(n+7)及之后的所有文章 */
+        #blog-grid > article:nth-child(n+7) {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+        }
     </style>
 </head>
 <body class="font-sans bg-white text-gray-900">
@@ -46,6 +70,54 @@
         menuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
+    </script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const loadMoreBtn = document.getElementById('load-more-btn');
+        const blogGrid = document.getElementById('blog-grid');
+        
+        if (!loadMoreBtn || !blogGrid) return; // 如果不在首页，则退出
+
+        const postsPerLoad = 6;
+        let currentlyShown = 6;
+        
+        // 获取网格中所有的文章卡片
+        const allPosts = blogGrid.querySelectorAll('article');
+
+        // 检查：如果总文章数小于等于6，直接隐藏“加载更多”按钮
+        if (allPosts.length <= currentlyShown) {
+            loadMoreBtn.style.display = 'none';
+            return; // 退出
+        }
+
+        loadMoreBtn.addEventListener('click', (e) => {
+            e.preventDefault(); // 阻止a标签的默认跳转
+            
+            const nextShow = currentlyShown + postsPerLoad;
+
+            // 循环显示接下来的6个
+            for (let i = currentlyShown; i < nextShow && i < allPosts.length; i++) {
+                
+                // (1) 立即更改 display
+                allPosts[i].style.display = 'block'; 
+                
+                // (2) 延迟一小下再触发 CSS 动画
+                setTimeout(() => {
+                    allPosts[i].style.opacity = '1';
+                    allPosts[i].style.transform = 'translateY(0)';
+                }, 10);
+            }
+            
+            // 更新当前已显示的计数
+            currentlyShown = nextShow;
+
+            // 如果已显示的数量 >= 总数，隐藏按钮
+            if (currentlyShown >= allPosts.length) {
+                loadMoreBtn.style.display = 'none';
+            }
+        });
+    });
     </script>
 
 </body>
