@@ -1,0 +1,7 @@
+# 网站基本信息
+title: 我的个人博客
+author: James Welsh
+description: "在这里分享我的思考、项目与生活点滴。"
+
+# GitHub Pages 默认需要这个
+theme: jekyll-theme-minimal
