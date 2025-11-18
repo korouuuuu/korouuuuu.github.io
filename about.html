@@ -5,40 +5,49 @@ title: 关于我 - 窦智超
 
 <section class="relative py-32 md:py-40 bg-white">
     <div class="max-w-3xl mx-auto px-6 text-center">
-        <div class="mb-8 inline-block relative">
-            <div class="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-gray-100 shadow-lg mx-auto">
+        <div class="mb-10 inline-block relative group">
+            <div class="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-gray-100 shadow-xl mx-auto transition-transform duration-500 group-hover:scale-105">
                 <img src="{{ '/assets/images/avatar.jpg' | relative_url }}" 
                      onerror="this.src='https://placehold.co/400x400/5a5a7d/ffffff?text=Dou'"
                      alt="窦智超" 
-                     class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                     class="w-full h-full object-cover">
+            </div>
+            <div class="absolute bottom-4 right-4 bg-white px-3 py-1 rounded-full shadow-sm border border-gray-100 flex items-center space-x-2">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                </span>
+                <span class="text-xs font-medium text-gray-600">Coding in Qingdao</span>
             </div>
         </div>
         
-        <h1 class="text-4xl md:text-5xl font-bold font-serif text-gray-900 mb-6">
-            你好，我是窦智超。
+        <h1 class="text-4xl md:text-5xl font-bold font-serif text-gray-900 mb-6 tracking-tight">
+            Hi，我是窦智超。
         </h1>
-        <p class="text-xl text-gray-600 font-serif leading-relaxed">
-            生活在青岛的数字探索者。<br>
-            热爱代码的逻辑之美，也着迷于用 AI 解决现实世界的难题。
+        <p class="text-xl text-gray-600 font-serif leading-relaxed max-w-2xl mx-auto">
+            一名游走于数字逻辑与物理世界之间的算法工程师。<br>
+            目前定居青岛，热衷于用技术解决难题，也享受海边的风与厨房的烟火气。
         </p>
     </div>
 </section>
 
 <section class="py-16 md:py-24 bg-gray-50">
     <div class="max-w-3xl mx-auto px-6">
-        <div class="prose prose-lg prose-gray mx-auto">
-            <h3 class="text-2xl font-bold font-serif text-gray-900 mb-6">关于我的旅程</h3>
+        <div class="prose prose-lg prose-slate mx-auto">
+            <h3 class="text-2xl font-bold font-serif text-gray-900 mb-8 flex items-center">
+                <span class="text-2xl mr-3">🚀</span> 关于我的旅程
+            </h3>
             
             <p>
-                我的故事始于对“智能”的好奇。在<strong>山东科技大学</strong>度过的本科与硕士时光，不仅仅是学位的积累，更是一段探索计算机如何理解世界的旅程。
+                我对计算机世界的探索始于<strong>烟台南山学院</strong>，那时的我第一次感受到了代码构建万物的乐趣。随后的求学之路将我带到了<strong>山东科技大学</strong>，攻读硕士期间，我沉迷于深度学习的黑盒魔法，试图搞懂计算机究竟是如何“看见”这个世界的。
             </p>
             
             <p>
-                作为一名算法工程师，我不仅仅满足于在实验室里跑通模型。我更热衷于<strong>“落地”</strong>——看着一行行代码最终变成工厂里精准识别缺陷的眼睛，或者矿山中守护安全的卫士，那种成就感是无与伦比的。
+                毕业后，我选择留在山东，加入了<strong>赛轮集团</strong>。
             </p>
 
             <p>
-                目前，我常驻<strong>青岛</strong>，在这个美丽的海滨城市工作和生活。我专注于计算机视觉（CV）与后端工程化的结合，致力于消除算法模型与实际应用之间的鸿沟。
+                作为一名算法工程师，我的日常工作并不只是坐在屏幕前敲击键盘。我更多的时候是在思考如何将象牙塔里的算法模型，搬进充满噪声和不确定性的工业现场。从<strong>视觉监控</strong>到<strong>精密缺陷检测</strong>，每一次模型的成功落地，都让我感到一种将“虚拟逻辑”转化为“实体价值”的扎实成就感。
             </p>
         </div>
     </div>
@@ -46,54 +55,67 @@ title: 关于我 - 窦智超
 
 <section class="py-16 md:py-24 bg-white border-t border-gray-100">
     <div class="max-w-5xl mx-auto px-6">
-        <h3 class="text-2xl font-bold font-serif text-gray-900 mb-12 text-center">代码之外</h3>
+        <h3 class="text-2xl font-bold font-serif text-gray-900 mb-12 text-center">代码之外的生活</h3>
         
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div class="p-6 hover:bg-gray-50 rounded-xl transition-colors duration-300">
-                <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div class="group">
+                <div class="aspect-w-16 aspect-h-9 mb-6 rounded-2xl overflow-hidden bg-gray-100 relative">
+                    <img src="https://images.unsplash.com/photo-1509619968948-a576a57c6870?q=80&w=800&auto=format&fit=crop" 
+                         alt="Fishing" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
                 </div>
-                <h4 class="font-bold text-gray-900 mb-2">阅读与思考</h4>
-                <p class="text-sm text-gray-600">
-                    技术更新很快，但底层的逻辑和哲学是恒定的。我喜欢通过阅读来拓宽认知的边界。
+                <h4 class="font-bold text-xl text-gray-900 mb-2">海边的等待</h4>
+                <p class="text-gray-600 leading-relaxed">
+                    青岛得天独厚的海岸线是我的“第二办公室”。周末我喜欢带上鱼竿去海边，钓鱼和写算法很像，都需要极大的耐心。看着海面发呆的时刻，是我大脑最好的“垃圾回收（GC）”时间。
                 </p>
             </div>
 
-            <div class="p-6 hover:bg-gray-50 rounded-xl transition-colors duration-300">
-                <div class="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+            <div class="group">
+                <div class="aspect-w-16 aspect-h-9 mb-6 rounded-2xl overflow-hidden bg-gray-100 relative">
+                    <img src="https://images.unsplash.com/photo-1556910103-1c02745a30bf?q=80&w=800&auto=format&fit=crop" 
+                         alt="Cooking" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
                 </div>
-                <h4 class="font-bold text-gray-900 mb-2">生活观察者</h4>
-                <p class="text-sm text-gray-600">
-                    摄影是我观察世界的另一种方式。青岛的山海与街巷，都是我捕捉灵感的来源。
+                <h4 class="font-bold text-xl text-gray-900 mb-2">厨房里的实验</h4>
+                <p class="text-gray-600 leading-relaxed">
+                    如果不写代码，我可能会是个厨师。我热衷于钻研食谱，也喜欢穿梭在青岛的大街小巷寻找隐秘的美食。切配、烹饪、调味，这其实是另一种形式的“工程构建”，而且反馈更直接、更美味。
                 </p>
             </div>
 
-            <div class="p-6 hover:bg-gray-50 rounded-xl transition-colors duration-300">
-                <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            <div class="group">
+                <div class="aspect-w-16 aspect-h-9 mb-6 rounded-2xl overflow-hidden bg-gray-100 relative">
+                    <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=800&auto=format&fit=crop" 
+                         alt="Movies" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
                 </div>
-                <h4 class="font-bold text-gray-900 mb-2">持续构建</h4>
-                <p class="text-sm text-gray-600">
-                    除了工作，我也热衷于折腾个人项目、优化工具流，享受“创造”带来的纯粹快乐。
+                <h4 class="font-bold text-xl text-gray-900 mb-2">光影观察者</h4>
+                <p class="text-gray-600 leading-relaxed">
+                    虽然很久没读书了，但我通过纪录片和电影来阅读世界。从自然地理到人文历史，纪录片镜头下的真实质感，总能给我带来新的视角。这或许也是我从事计算机视觉工作的某种潜意识投射。
                 </p>
             </div>
         </div>
     </div>
 </section>
 
-<section class="py-16 bg-gray-900 text-white text-center">
+<section class="py-24 bg-white text-center border-t border-gray-100">
     <div class="max-w-2xl mx-auto px-6">
-        <h2 class="text-3xl font-serif font-bold mb-6">保持联系</h2>
-        <p class="text-gray-400 mb-8 text-lg">
-            无论你是想讨论技术、交流想法，还是仅仅想打个招呼，我都很乐意收到你的来信。
+        <h2 class="text-3xl font-serif font-bold text-gray-900 mb-6">保持联系</h2>
+        <p class="text-gray-600 mb-10 text-lg leading-relaxed">
+            这个博客是我数字花园的一部分。如果你对我的技术感兴趣，或者只是想聊聊青岛哪里有好吃的，欢迎随时来信。
         </p>
-        <div class="flex justify-center space-x-8">
-            <a href="mailto:douzhichao2021@163.com" class="text-white border-b border-white hover:text-gray-300 hover:border-gray-300 transition-colors pb-1">
-                发送邮件
+        <div class="flex justify-center items-center space-x-10">
+            <a href="mailto:douzhichao2021@163.com" class="group flex flex-col items-center">
+                <span class="p-4 bg-gray-50 rounded-full group-hover:bg-blue-50 transition-colors mb-3">
+                    <svg class="w-6 h-6 text-gray-900 group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                </span>
+                <span class="font-semibold text-gray-900 border-b border-transparent group-hover:border-blue-600 transition-colors">发送邮件</span>
             </a>
-            <a href="#" class="text-white border-b border-white hover:text-gray-300 hover:border-gray-300 transition-colors pb-1">
-                GitHub
+            
+            <a href="#" class="group flex flex-col items-center">
+                <span class="p-4 bg-gray-50 rounded-full group-hover:bg-gray-200 transition-colors mb-3">
+                    <svg class="w-6 h-6 text-gray-900" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </span>
+                <span class="font-semibold text-gray-900 border-b border-transparent group-hover:border-gray-900 transition-colors">GitHub</span>
             </a>
         </div>
     </div>

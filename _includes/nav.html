@@ -1,17 +1,22 @@
-<nav class="absolute top-0 left-0 right-0 z-20 p-6 md:p-8 text-white">
+{% assign nav_text_color = "text-gray-900" %}
+{% if page.url == "/" %}
+  {% assign nav_text_color = "text-white" %}
+{% endif %}
+
+<nav class="absolute top-0 left-0 right-0 z-20 p-6 md:p-8 {{ nav_text_color }}">
     <div class="w-full flex justify-between items-center px-4 md:px-8">
         
         <a href="{{ "/" | relative_url }}" class="font-bold text-xl tracking-wider hover:opacity-80 transition-opacity">MyBlog</a>
         
         <div class="hidden md:flex items-center space-x-8">
-            <a href="{{ '/about.html' | relative_url }}" class="text-white hover:opacity-80 transition-opacity">关于我</a>
+            <a href="{{ '/about.html' | relative_url }}" class="hover:opacity-80 transition-opacity">关于我</a>
             
-            <button id="search-trigger" class="text-white hover:opacity-80 transition-opacity focus:outline-none">
+            <button id="search-trigger" class="hover:opacity-80 transition-opacity focus:outline-none">
                 <svg class="icon-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
             </button>
         </div>
 
-        <button id="menu-btn" class="md:hidden z-30 text-white">
+        <button id="menu-btn" class="md:hidden z-30">
             <svg class="icon-menu" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
         </button>
     </div>
@@ -19,7 +24,7 @@
 
 <div id="mobile-menu" class="hidden md:hidden fixed inset-0 bg-gray-900 bg-opacity-95 z-40 flex flex-col items-center justify-center space-y-6 text-2xl text-white">
     <a href="{{ '/about.html' | relative_url }}">关于我</a>
-    </div>
+</div>
 
 <div id="search-overlay" class="hidden fixed inset-0 bg-gray-900 bg-opacity-95 z-50 flex flex-col items-center pt-32 px-4">
     
