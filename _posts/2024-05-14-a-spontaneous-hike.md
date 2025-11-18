@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "一次说走就走的徒步"
 author: "James Welsh"
 date: 2024-05-14

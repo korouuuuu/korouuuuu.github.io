@@ -1,0 +1,25 @@
+---
+# 告诉 Jekyll：这个布局本身也“嵌套”在 default 布局中
+# 这样我们的文章页也能拥有统一的导航栏和页脚
+layout: default
+---
+
+<div class="py-32">
+
+    <div class="max-w-3xl mx-auto px-6">
+
+        <header class="mb-12">
+            <h1 class="font-serif text-4xl md:text-5xl font-bold text-gray-900">
+                {{ page.title }}
+            </h1>
+            <p class="mt-4 text-lg text-gray-600">
+                {{ page.date | date: "%Y年%m月%d日" }} &bull; {{ page.author | default: site.author }}
+            </p>
+        </header>
+
+        <article class="prose prose-lg lg:prose-xl max-w-none">
+            {{ content }}
+        </article>
+
+    </div>
+</div>

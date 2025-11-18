@@ -1,5 +1,5 @@
 ---
-layout: default # (您未来可以创建一个 'post' 布局)
+layout: post # (您未来可以创建一个 'post' 布局)
 title: "构建我的第一个 App"
 author: "James Welsh"
 date: 2024-05-15
