@@ -1,0 +1,21 @@
+<article class="bg-white rounded-lg shadow-md overflow-hidden transition-shadow duration-300 hover:shadow-xl">
+    <a href="{{ post.url | relative_url }}">
+        <img src="{{ post.image_url }}" 
+             onerror="this.src='https://placehold.co/600x400/c0c0c0/ffffff?text=Image+Missing'"
+             alt="{{ post.title }}" class="w-full h-56 object-cover">
+    </a>
+    <div class="p-6">
+        <span class="text-sm font-semibold {{ post.category_color | default: 'text-gray-600' }} uppercase">{{ post.category }}</span>
+        <h3 class="mt-2 text-2xl font-bold font-serif">
+            <a href="{{ post.url | relative_url }}" class="hover:{{ post.category_color | default: 'text-gray-600' | replace: 'text', 'hover:text' }}">{{ post.title }}</a>
+        </h3>
+        <div class="flex items-center mt-4">
+            <img src="{{ post.author_image | default: 'https://placehold.co/40x40/c0c0c0/ffffff?text=A' }}" alt="作者头像" class="w-10 h-10 rounded-full object-cover">
+            <div class="ml-3">
+                <span class="font-semibold text-gray-900">{{ post.author | default: site.author }}</span>
+                <span class="block text-sm text-gray-600">{{ post.date | date: "%B %d, %Y" }}</span>
+            </div>
+        </div>
+        <a href="{{ post.url | relative_url }}" class="mt-6 inline-block {{ post.category_color | default: 'text-blue-600' }} font-semibold hover:underline">阅读全文 &rarr;</a>
+    </div>
+</article>

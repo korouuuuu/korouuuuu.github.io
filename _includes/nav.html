@@ -1,0 +1,26 @@
+<nav class="absolute top-0 left-0 right-0 z-20 p-6 md:p-8">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <a href="{{ "/" | relative_url }}" class="font-bold text-xl tracking-wider">MyBlog</a>
+        
+        <div class="hidden md:flex items-center space-x-8">
+            <a href="{{ "/" | relative_url }}" class="hover:opacity-80 transition-opacity">首页</a>
+            <a href="#" class="hover:opacity-80 transition-opacity">关于我</a>
+            <a href="#" class="hover:opacity-80 transition-opacity">博客</a>
+            <a href="#" class="hover:opacity-80 transition-opacity">
+                <svg class="icon-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </a>
+            <a href="#" class="bg-white text-gray-900 px-5 py-2 rounded-full font-semibold text-sm hover:bg-gray-200 transition-colors">订阅</a>
+        </div>
+
+        <button id="menu-btn" class="md:hidden z-30">
+            <svg class="icon-menu" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+    </div>
+</nav>
+
+<div id="mobile-menu" class="hidden md:hidden fixed inset-0 bg-gray-900 bg-opacity-95 z-20 flex flex-col items-center justify-center space-y-6 text-2xl">
+    <a href="{{ "/" | relative_url }}">首页</a>
+    <a href="#">关于我</a>
+    <a href="#">博客</a>
+    <a href="#" class="bg-white text-gray-900 px-6 py-3 rounded-full font-semibold text-lg">订阅</a>
+</div>
