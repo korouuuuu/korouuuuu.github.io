@@ -16,9 +16,7 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        // 正文使用无衬线体：Inter + 系统默认黑体
                         'sans': ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-                        // 标题使用衬线体：Playfair Display (英文) + Noto Serif SC (中文)
                         'serif': ['"Playfair Display"', '"Noto Serif SC"', 'serif'], 
                     },
                     typography: {
@@ -26,13 +24,11 @@
                             css: {
                                 maxWidth: '100%', 
                                 color: '#374151',
-                                // 让文章内的标题自动使用这一套优雅的衬线体
                                 'h1, h2, h3, h4': {
                                     fontFamily: '"Playfair Display", "Noto Serif SC", serif',
                                     fontWeight: '700',
                                     color: '#111827',
                                 },
-                                // 引用块样式优化
                                 blockquote: {
                                     fontFamily: '"Playfair Display", "Noto Serif SC", serif',
                                     fontStyle: 'italic',
@@ -54,6 +50,12 @@
     </script>
     
     <style>
+        /* [核心修改] 全局基准字号调整 
+           默认是 16px，设为 15px 大约等于 93% 的缩放效果。
+           Tailwind 的 rem 单位会基于此自动调整所有元素大小。
+        */
+        html { font-size: 15px; }
+
         .icon-search { width: 20px; height: 20px; stroke: currentColor; stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
         .icon-menu { width: 24px; height: 24px; stroke: currentColor; stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
         html { scroll-behavior: smooth; }

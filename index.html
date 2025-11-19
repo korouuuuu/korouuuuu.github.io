@@ -4,7 +4,7 @@ layout: default
 title: 首页 - 我的个人博客
 ---
 
-<header class="relative h-[90vh] md:h-screen text-white">
+<header class="relative h-[85vh] md:h-[90vh] text-white">
 
     <div class="absolute inset-0 h-full w-full">
         <img src="{{ "/assets/images/my-hero-image.jpg" | relative_url }}" 
@@ -15,12 +15,12 @@ title: 首页 - 我的个人博客
     </div>
 
     <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
-        <h1 class="font-serif text-5xl md:text-7xl font-bold max-w-3xl">
+        <h1 class="font-serif text-4xl md:text-6xl font-bold max-w-3xl leading-tight">
             {{ site.title }}
         </h1>
-        <p class="mt-4 text-lg md:text-xl max-w-xl">{{ site.description }}</p>
+        <p class="mt-6 text-base md:text-lg max-w-xl opacity-90 font-light tracking-wide">{{ site.description }}</p>
         
-        <a href="#blog-section" class="mt-8 bg-white text-gray-900 px-8 py-3 rounded-full font-semibold text-lg hover:bg-gray-200 transition-colors">
+        <a href="#blog-section" class="mt-10 bg-white text-gray-900 px-7 py-2.5 rounded-full font-semibold text-base hover:bg-gray-200 transition-colors">
             阅读博客
         </a>
     </div>
@@ -34,21 +34,21 @@ title: 首页 - 我的个人博客
                 {% include post-card.html %}
             {% endfor %}
             </div>
-        <div class="text-center mt-12">
-            <a href="#!" id="load-more-btn" class="bg-gray-900 text-white px-8 py-3 rounded-full font-semibold hover:bg-gray-700 transition-colors">加载更多</a>
+        <div class="text-center mt-16">
+            <a href="#!" id="load-more-btn" class="bg-gray-900 text-white px-8 py-3 rounded-full font-semibold text-sm hover:bg-gray-700 transition-colors tracking-wide">加载更多</a>
         </div>
     </div>
 </section>
 
-<section class="relative py-32 md:py-48 bg-cover bg-center bg-fixed" style="background-image: url('{{ "/assets/images/my-cta-texture.jpg" | relative_url }}')">
+<section class="relative py-28 md:py-40 bg-cover bg-center bg-fixed" style="background-image: url('{{ "/assets/images/my-cta-texture.jpg" | relative_url }}')">
     <div class="absolute inset-0 bg-black opacity-50"></div>
     <div class="relative z-10 max-w-4xl mx-auto text-center text-white px-6">
-        <h2 class="text-4xl md:text-5xl font-bold font-serif">
+        <h2 class="text-3xl md:text-5xl font-bold font-serif">
             探索无尽的好奇心
         </h2>
-        <p class="mt-4 text-lg md:text-xl">查看我的项目或与我取得联系</p>
+        <p class="mt-4 text-base md:text-lg opacity-90">查看我的项目或与我取得联系</p>
         
-        <a href="#contact-info" class="mt-8 inline-block bg-white text-gray-900 px-8 py-3 rounded-full font-semibold text-lg hover:bg-gray-200 transition-colors">
+        <a href="#contact-info" class="mt-8 inline-block bg-white text-gray-900 px-8 py-3 rounded-full font-semibold text-base hover:bg-gray-200 transition-colors">
             联系我
         </a>
     </div>
@@ -56,38 +56,26 @@ title: 首页 - 我的个人博客
 
 <section class="py-16 md:py-24 bg-white">
     <div class="max-w-7xl mx-auto px-6">
-        <h2 class="text-3xl md:text-4xl font-bold font-serif text-center mb-12">精选项目</h2>
+        <h2 class="text-2xl md:text-3xl font-bold font-serif text-center mb-12">精选项目</h2>
+        
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 md:gap-6">
-            <a href="#" class="relative block h-48 md:h-64 rounded-lg overflow-hidden shadow-lg group">
-                <img src="https://placehold.co/400x400/80a1bf/ffffff?text=Project+A" alt="项目" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
-                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-                    <span class="text-white font-bold text-xl font-serif">项目 A</span>
+            {% if site.data.projects %}
+                {% for project in site.data.projects %}
+                <a href="{{ project.url }}" target="_blank" class="relative block h-40 md:h-56 rounded-lg overflow-hidden shadow-lg group">
+                    <img src="{{ project.image | relative_url }}" 
+                         alt="{{ project.name }}" 
+                         onerror="this.src='https://placehold.co/400x400?text=Project'"
+                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-50 transition-all flex flex-col items-center justify-center p-2 text-center">
+                        <span class="text-white font-bold text-lg font-serif drop-shadow-md">{{ project.name }}</span>
+                    </div>
+                </a>
+                {% endfor %}
+            {% else %}
+                <div class="col-span-full text-center text-gray-400 py-10">
+                    (请在 _data/projects.yml 中配置项目)
                 </div>
-            </a>
-            <a href="#" class="relative block h-48 md:h-64 rounded-lg overflow-hidden shadow-lg group">
-                <img src="https://placehold.co/400x400/bf80a1/ffffff?text=Project+B" alt="项目" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
-                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-                    <span class="text-white font-bold text-xl font-serif">项目 B</span>
-                </div>
-            </a>
-            <a href="#" class="relative block h-48 md:h-64 rounded-lg overflow-hidden shadow-lg group">
-                <img src="https://placehold.co/400x400/a1bf80/ffffff?text=Project+C" alt="项目" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
-                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-                    <span class="text-white font-bold text-xl font-serif">项目 C</span>
-                </div>
-            </a>
-            <a href="#" class="relative block h-48 md:h-64 rounded-lg overflow-hidden shadow-lg group">
-                <img src="https://placehold.co/400x400/d9b380/ffffff?text=Project+D" alt="项目" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
-                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-                    <span class="text-white font-bold text-xl font-serif">项目 D</span>
-                </div>
-            </a>
-            <a href="#" class="relative block h-48 md:h-64 rounded-lg overflow-hidden shadow-lg group">
-                <img src="https://placehold.co/400x400/80d9b3/ffffff?text=Project+E" alt="项目" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
-                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-                    <span class="text-white font-bold text-xl font-serif">项目 E</span>
-                </div>
-            </a>
+            {% endif %}
         </div>
     </div>
 </section>
