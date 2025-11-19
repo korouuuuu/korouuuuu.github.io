@@ -1,252 +1,222 @@
 ---
 layout: default
-title: 这里的我是 Beta 版
+title: Protocol: About Me
 ---
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zhi+Mang+Xing&family=Patrick+Hand&display=swap" rel="stylesheet">
+<div class="min-h-screen bg-gray-50 text-gray-900 font-sans selection:bg-black selection:text-white">
 
-<style>
-    .font-hand { font-family: 'Patrick Hand', cursive; }
-    .font-chinese-hand { font-family: 'Zhi Mang Xing', cursive; }
-    /* 拍立得效果 */
-    .polaroid {
-        background: white;
-        padding: 1rem 1rem 3rem 1rem;
-        box-shadow: 5px 5px 15px rgba(0,0,0,0.15);
-        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
-    .polaroid:hover {
-        transform: scale(1.05) rotate(0deg) !important;
-        z-index: 10;
-    }
-    /* 胶带效果 */
-    .tape {
-        background-color: rgba(255, 255, 255, 0.4);
-        box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-        backdrop-filter: blur(2px);
-        transform: rotate(-2deg);
-    }
-</style>
-
-<div class="min-h-screen bg-[#fdfbf7] overflow-hidden text-gray-800 relative">
-    
-    <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(#444 1px, transparent 1px); background-size: 20px 20px;"></div>
-
-    <div class="max-w-5xl mx-auto px-6 pt-24 pb-12">
-        <div class="flex flex-col md:flex-row items-center md:items-start gap-12">
-            
-            <div class="relative group shrink-0 mt-8">
-                <div class="polaroid rotate-[-3deg] w-64">
-                    <img src="{{ '/assets/images/avatar.jpg' | relative_url }}" 
-                         onerror="this.src='https://placehold.co/400x400/5a5a7d/ffffff?text=Dou'"
-                         alt="窦智超" 
-                         class="w-full h-64 object-cover filter sepia-[0.2]">
-                    <div class="font-hand text-2xl text-center mt-4 text-gray-600">Me @ Qingdao</div>
-                </div>
-                <div class="absolute -top-4 -right-4 bg-yellow-300 text-yellow-900 font-black px-3 py-1 text-sm rotate-6 shadow-md border-2 border-yellow-400 transform group-hover:scale-110 transition-transform">
-                    ENTJ-T 指挥官
-                </div>
-                <div class="tape absolute -top-3 left-1/2 -translate-x-1/2 w-24 h-8 z-20"></div>
-            </div>
-
-            <div class="flex-1 space-y-6 relative">
-                <h1 class="text-5xl md:text-6xl font-bold font-serif tracking-tight relative inline-block">
-                    Hi, 我是窦智超。
-                    <span class="absolute -bottom-4 right-0 text-xl text-blue-600 font-chinese-hand rotate-[-5deg]">
-                        (是一个算法工程师)
-                    </span>
-                </h1>
-
-                <div class="bg-white p-6 rounded-2xl shadow-sm border-2 border-dashed border-gray-200 relative mt-4">
-                    <p class="text-lg leading-relaxed text-gray-600">
-                        1998 年出厂，目前运行在 <span class="font-bold text-gray-800">青岛</span> 服务器。<br>
-                        主要功能是用代码解析图像，偶尔在厨房和海边发生“未捕获异常”。<br>
-                        <br>
-                        我的生活哲学是：<br>
-                        <span class="text-xl font-serif font-bold text-gray-900 italic">
-                            “追求人生的全局最优解 (Global Optimum)，但也沉迷每一处的局部快乐。”
-                        </span>
-                    </p>
-                    <div class="absolute -top-3 right-8 w-4 h-12 border-2 border-gray-400 rounded-full z-10 bg-gray-100" style="border-bottom: none;"></div>
-                </div>
-
-                <div class="flex flex-wrap gap-4 mt-8">
-                    <div class="bg-pink-100 rotate-2 p-4 rounded-lg shadow-sm w-40 transform transition hover:scale-110">
-                        <span class="block text-xs font-bold text-pink-500 uppercase tracking-wider mb-1">NOW</span>
-                        <p class="font-chinese-hand text-xl text-gray-800">正在和 ChatGPT 斗智斗勇 🤖</p>
-                    </div>
-                    <div class="bg-blue-100 -rotate-1 p-4 rounded-lg shadow-sm w-40 transform transition hover:scale-110">
-                        <span class="block text-xs font-bold text-blue-500 uppercase tracking-wider mb-1">DRINKING</span>
-                        <p class="font-chinese-hand text-xl text-gray-800">瑞幸咖啡<br>(痛苦面具版) ☕️</p>
-                    </div>
-                    <div class="bg-green-100 rotate-1 p-4 rounded-lg shadow-sm w-40 transform transition hover:scale-110">
-                        <span class="block text-xs font-bold text-green-600 uppercase tracking-wider mb-1">DRIVING</span>
-                        <p class="font-chinese-hand text-xl text-gray-800">新车磨合中 🚗<br>DJ 嗨曲循环</p>
-                    </div>
-                </div>
-            </div>
+    <header class="relative pt-24 pb-20 border-b border-gray-200 overflow-hidden">
+        <div class="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 opacity-[0.03] pointer-events-none select-none">
+            <span class="text-[20rem] font-black leading-none font-serif">DZ</span>
         </div>
-    </div>
 
-    <div class="max-w-4xl mx-auto px-6 py-16">
-        <h2 class="text-3xl font-bold font-serif mb-12 text-center relative">
-            <span class="relative z-10">我的版本迭代日志</span>
-            <span class="absolute bottom-1 left-1/2 -translate-x-1/2 w-32 h-3 bg-yellow-200 -z-0 skew-x-12"></span>
-        </h2>
-        
-        <div class="relative border-l-4 border-gray-200 ml-6 md:ml-12 space-y-12">
-            
-            <div class="relative pl-8 md:pl-12">
-                <span class="absolute -left-[11px] top-1 w-5 h-5 bg-gray-800 rounded-full border-4 border-white"></span>
-                <span class="font-mono text-sm text-gray-400 block mb-1">v1.0.0 - 1998</span>
-                <h3 class="text-xl font-bold">Hello World</h3>
-                <p class="text-gray-600">系统初始化完成。</p>
-            </div>
-
-            <div class="relative pl-8 md:pl-12">
-                <span class="absolute -left-[11px] top-1 w-5 h-5 bg-blue-400 rounded-full border-4 border-white"></span>
-                <span class="font-mono text-sm text-gray-400 block mb-1">2005</span>
-                <h3 class="text-xl font-bold">那个下午</h3>
-                <p class="text-gray-600 font-chinese-hand text-2xl text-blue-600 transform -rotate-1">
-                    "下午睡了特别香的一觉，梦见了什么忘了，但感觉很好。"
-                </p>
-            </div>
-
-            <div class="relative pl-8 md:pl-12">
-                <span class="absolute -left-[11px] top-1 w-5 h-5 bg-pink-400 rounded-full border-4 border-white"></span>
-                <span class="font-mono text-sm text-gray-400 block mb-1">2021</span>
-                <h3 class="text-xl font-bold">双核驱动更新</h3>
-                <p class="text-gray-600">这一年运气爆棚：考上了研究生，还找到了那个她。</p>
-            </div>
-
-            <div class="relative pl-8 md:pl-12">
-                <span class="absolute -left-[11px] top-1 w-5 h-5 bg-purple-400 rounded-full border-4 border-white"></span>
-                <span class="font-mono text-sm text-gray-400 block mb-1">2023</span>
-                <h3 class="text-xl font-bold">CVPR & Work</h3>
-                <p class="text-gray-600">发表了 CVPR Workshop 论文，同时也把自己“卖”给了赛轮集团。</p>
-            </div>
-
-            <div class="relative pl-8 md:pl-12">
-                <span class="absolute -left-[11px] top-1 w-5 h-5 bg-green-500 rounded-full border-4 border-white animate-pulse"></span>
-                <span class="font-mono text-sm text-gray-400 block mb-1">2025 (Now)</span>
-                <h3 class="text-xl font-bold">解锁新地图</h3>
-                <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
-                    <li>第一次和王老师去钓螃蟹 🦀</li>
-                    <li>提了人生第一辆车，从此即使是去超市也是“自驾游” 🏎️</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <section class="py-16 bg-white border-t-2 border-dashed border-gray-200">
-        <div class="max-w-5xl mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div class="max-w-6xl mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
                 
-                <div class="bg-gray-900 text-white rounded-xl p-6 shadow-2xl transform rotate-1 transition hover:rotate-0">
-                    <div class="flex items-center justify-between mb-6">
-                        <span class="text-xs text-gray-400">NOW PLAYING</span>
-                        <div class="flex space-x-1">
-                            <div class="w-1 h-1 bg-red-500 rounded-full"></div>
-                            <div class="w-1 h-1 bg-yellow-500 rounded-full"></div>
-                            <div class="w-1 h-1 bg-green-500 rounded-full"></div>
-                        </div>
+                <div class="lg:col-span-7">
+                    <div class="inline-block px-3 py-1 mb-6 border border-gray-900 text-xs font-mono font-bold tracking-widest uppercase bg-white">
+                        System Status: Online
                     </div>
-                    <div class="flex items-center space-x-4 mb-6">
-                        <div class="w-16 h-16 bg-gradient-to-br from-purple-600 to-blue-600 rounded-md flex items-center justify-center">
-                            <svg class="w-8 h-8 text-white animate-spin-slow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 10l12-3"></path></svg>
-                        </div>
-                        <div>
-                            <h3 class="font-bold text-lg">危险派对</h3>
-                            <p class="text-gray-400 text-sm">开车专用歌单 / DJ默涵版</p>
-                        </div>
-                    </div>
-                    <div class="space-y-3">
-                        <div class="h-1 bg-gray-700 rounded-full overflow-hidden">
-                            <div class="h-full bg-green-500 w-2/3"></div>
-                        </div>
-                        <div class="flex justify-between text-xs text-gray-500 font-mono">
-                            <span>1:20</span>
-                            <span>3:45</span>
-                        </div>
-                    </div>
-                    <div class="mt-6 pt-6 border-t border-gray-800">
-                        <p class="text-sm text-gray-400 mb-2">Next Up:</p>
-                        <p class="font-serif italic">"感官先生", "罗曼蒂克的爱情"</p>
-                    </div>
-                </div>
-
-                <div class="relative h-80">
-                    <div class="absolute top-0 left-0 md:left-10 polaroid rotate-[-6deg] w-56 bg-white p-2 z-10">
-                        <img src="{{ '/assets/images/cooking.jpg' | relative_url }}" 
-                             onerror="this.src='https://placehold.co/400x400/e2e8f0/475569?text=Cooking'" 
-                             class="w-full h-40 object-cover">
-                        <p class="text-center font-chinese-hand text-xl mt-2 text-gray-700">拿手鲁菜大厨</p>
-                    </div>
+                    <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-8 leading-none">
+                        DOU<br>ZHICHAO
+                    </h1>
+                    <div class="h-1 w-24 bg-blue-600 mb-8"></div>
                     
-                    <div class="absolute top-12 right-0 md:right-10 polaroid rotate-[4deg] w-56 bg-white p-2 z-20">
-                        <img src="{{ '/assets/images/movie.jpg' | relative_url }}" 
-                             onerror="this.src='https://placehold.co/400x400/e2e8f0/475569?text=Movie'"
-                             class="w-full h-40 object-cover grayscale hover:grayscale-0 transition">
-                        <p class="text-center font-chinese-hand text-xl mt-2 text-gray-700">《无问西东》</p>
+                    <div class="prose prose-lg text-gray-600">
+                        <p class="text-xl md:text-2xl font-medium text-gray-900 leading-relaxed">
+                            算法工程师 / 视觉探索者 / 生活观察员
+                        </p>
+                        <p class="mt-4 font-mono text-sm text-gray-500">
+                            > Current Objective: Infinite Progress (∞)<br>
+                            > Status: Training in progress...
+                        </p>
                     </div>
+                </div>
 
-                    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 bg-yellow-200 px-4 py-2 shadow-md rotate-[-2deg] z-30">
-                        <p class="font-hand font-bold text-red-600">Dog Person? Cat Person? -> Robot Person.</p>
+                <div class="lg:col-span-5 relative">
+                    <div class="relative w-full aspect-[4/5] bg-gray-200 overflow-hidden group">
+                        <img src="{{ '/assets/images/avatar.jpg' | relative_url }}" 
+                             onerror="this.src='https://placehold.co/600x800/e5e5e5/333333?text=Profile'"
+                             alt="Profile" 
+                             class="absolute inset-0 w-full h-full object-cover filter grayscale contrast-125 transition-all duration-700 group-hover:filter-none group-hover:scale-105">
+                        
+                        <div class="absolute bottom-0 left-0 w-full p-4 bg-white/90 backdrop-blur border-t border-gray-200 flex justify-between items-center text-xs font-mono">
+                            <span>ID: ENTJ-T</span>
+                            <span>LOC: QINGDAO</span>
+                        </div>
                     </div>
+                    <div class="absolute -inset-4 border-2 border-gray-900 -z-10 hidden md:block"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-20 border-b border-gray-200">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <h2 class="text-4xl font-bold tracking-tight flex items-center gap-4">
+                    <span class="w-4 h-4 bg-blue-600"></span>
+                    Running Processes
+                </h2>
+                <span class="font-mono text-gray-400 text-sm mt-4 md:mt-0">/// REAL-TIME UPDATES</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <div class="bg-white border border-gray-200 p-6 lg:col-span-2 hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between min-h-[240px]">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-sm font-mono font-bold text-gray-400 uppercase">Current Task</h3>
+                        <div class="animate-pulse w-2 h-2 bg-green-500 rounded-full"></div>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-bold text-gray-900 mb-2">与 AI 的博弈</p>
+                        <p class="text-gray-600">正在探索 LLM 的边界，试图让代码比我有更多“灵性”。</p>
+                    </div>
+                    <div class="mt-6 w-full bg-gray-100 h-1.5">
+                        <div class="bg-gray-900 h-1.5 w-3/4 loading-bar"></div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-900 text-white p-6 hover:bg-gray-800 transition-colors duration-300">
+                    <h3 class="text-sm font-mono font-bold text-gray-500 uppercase mb-4">Energy Source</h3>
+                    <div class="flex items-center gap-4 mb-6">
+                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 1v3M10 1v3M14 1v3"></path></svg>
+                        <span class="text-2xl font-bold">Luckin</span>
+                    </div>
+                    <p class="text-gray-400 text-sm font-mono border-t border-gray-700 pt-4">
+                        State: <span class="text-white">Pain Mask (痛苦面具)</span><br>
+                        Frequency: Daily
+                    </p>
+                </div>
+
+                <div class="bg-blue-600 text-white p-6 overflow-hidden relative group">
+                    <div class="absolute top-0 right-0 p-3 opacity-20">
+                        <svg class="w-24 h-24 transform rotate-12" fill="currentColor" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+                    </div>
+                    <h3 class="text-sm font-mono font-bold text-blue-200 uppercase mb-8">Audio Output</h3>
+                    <div>
+                        <p class="text-xs font-mono mb-1 opacity-70">NOW PLAYING</p>
+                        <p class="text-xl font-bold leading-tight mb-1">危险派对</p>
+                        <p class="text-sm opacity-80">DJ 默涵 Remix</p>
+                    </div>
+                    <div class="flex items-end gap-1 h-8 mt-6 opacity-80">
+                        <div class="w-1 bg-white animate-eq h-3"></div>
+                        <div class="w-1 bg-white animate-eq h-6 animation-delay-100"></div>
+                        <div class="w-1 bg-white animate-eq h-4 animation-delay-200"></div>
+                        <div class="w-1 bg-white animate-eq h-8 animation-delay-300"></div>
+                        <div class="w-1 bg-white animate-eq h-2 animation-delay-75"></div>
+                    </div>
+                </div>
+
+                <div class="relative group overflow-hidden bg-gray-100 lg:col-span-2">
+                    <img src="{{ '/assets/images/cooking.jpg' | relative_url }}" 
+                         class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 filter brightness-75 group-hover:brightness-100">
+                    <div class="absolute bottom-0 left-0 p-6 text-white">
+                        <h3 class="text-2xl font-bold">鲁菜研习所</h3>
+                        <p class="text-sm font-mono opacity-80 mt-1">Compiling deliciousness...</p>
+                    </div>
+                </div>
+
+                <div class="bg-white border border-gray-200 p-6 lg:col-span-2 flex flex-col justify-center items-center text-center hover:bg-gray-50 transition-colors">
+                    <h3 class="text-sm font-mono font-bold text-gray-400 uppercase mb-2">New Module Loaded</h3>
+                    <p class="text-3xl font-black text-gray-900 mb-2">DRIVER v1.0</p>
+                    <p class="text-gray-600">2025 Update: Unlock [Car] & [Crab Fishing] skills.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-16 bg-[#f3f4f6]">
-        <div class="max-w-3xl mx-auto px-6">
-            <h2 class="text-3xl font-bold font-serif mb-8 text-center">Q&A: 随便聊聊</h2>
+    <section class="py-20">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-4xl font-bold tracking-tight mb-12 font-mono">Changelog</h2>
             
-            <div class="space-y-6">
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                    <p class="font-bold text-gray-900 mb-2 flex items-center">
-                        <span class="w-6 h-6 bg-black text-white rounded-full flex items-center justify-center text-xs mr-3">Q</span>
-                        如果不是算法工程师，你会做什么？
-                    </p>
-                    <p class="text-gray-600 ml-9">
-                        大概会去开个鲁菜馆子吧，或者做一个全职的钓鱼博主（虽然目前还在空军阶段）。
-                    </p>
+            <div class="relative border-l border-gray-300 ml-4 space-y-12">
+                
+                <div class="relative pl-12 group">
+                    <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 bg-white border-2 border-blue-600 rounded-full group-hover:scale-150 transition-transform"></div>
+                    <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-2">
+                        <span class="font-mono text-blue-600 font-bold text-lg">v2025.05</span>
+                        <span class="text-sm text-gray-400 font-mono">HEAD -> main</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">生活副本扩展</h3>
+                    <p class="text-gray-600">解锁了车辆驾驶权限；在王老师的指导下完成了首次赶海作业（捕获对象：螃蟹）。</p>
                 </div>
 
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                    <p class="font-bold text-gray-900 mb-2 flex items-center">
-                        <span class="w-6 h-6 bg-black text-white rounded-full flex items-center justify-center text-xs mr-3">Q</span>
-                        写代码时的怪癖？
-                    </p>
-                    <p class="text-gray-600 ml-9">
-                        必须听那种土嗨的 DJ 慢摇，节奏感越强代码写得越快。这可能就是我的 "Flow" 状态。
-                    </p>
+                <div class="relative pl-12 group">
+                    <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 bg-gray-400 rounded-full"></div>
+                    <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-2">
+                        <span class="font-mono text-gray-500 font-bold text-lg">v2023.06</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Career init()</h3>
+                    <p class="text-gray-600">发表 CVPR Workshop 论文；加入赛轮集团，正式开始将算法部署到现实世界。</p>
                 </div>
-            </div>
 
-            <div class="text-center mt-16">
-                <p class="text-2xl font-chinese-hand text-gray-500 transform rotate-[-2deg]">
-                    "别看了，没啥干货，全是碎碎念。"
-                </p>
-                <div class="mt-8">
-                    <a href="mailto:douzhichao2021@163.com" class="inline-block border-2 border-gray-900 text-gray-900 px-8 py-2 rounded-full font-bold hover:bg-gray-900 hover:text-white transition-colors">
-                        找我聊天
-                    </a>
+                <div class="relative pl-12 group">
+                    <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 bg-gray-400 rounded-full"></div>
+                    <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-2">
+                        <span class="font-mono text-gray-500 font-bold text-lg">v2021.09</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">双线程并行</h3>
+                    <p class="text-gray-600">开启研究生生涯；<span class="bg-pink-50 text-pink-600 px-1">Player 2 joined the game</span> (找到了女朋友)。</p>
                 </div>
+
+                <div class="relative pl-12 group">
+                    <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 bg-gray-900 rounded-full ring-4 ring-gray-100"></div>
+                    <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-2">
+                        <span class="font-mono text-gray-900 font-bold text-lg">v2005.xx</span>
+                        <span class="text-xs bg-gray-200 text-gray-600 px-2 py-0.5 rounded font-mono">CORE MEMORY</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">系统休眠测试</h3>
+                    <blockquote class="text-lg text-gray-500 italic border-l-2 border-gray-900 pl-4 py-2 my-2">
+                        "下午睡了特别香的一觉。具体梦境数据丢失，但系统缓存中保留了极度舒适的标记。"
+                    </blockquote>
+                </div>
+
+                <div class="relative pl-12 group">
+                    <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 bg-gray-300 rounded-full"></div>
+                    <span class="font-mono text-gray-400 text-sm">v1.0.0 Initial Commit (1998)</span>
+                </div>
+
             </div>
         </div>
     </section>
+
+    <footer class="bg-gray-900 text-white py-24">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-5xl md:text-7xl font-black mb-8 tracking-tighter">
+                LET'S CONNECT
+            </h2>
+            <p class="text-gray-400 text-xl mb-12 max-w-2xl mx-auto">
+                无论是讨论算法模型，还是分享青岛的美食地图，随时欢迎 Ping 我。
+            </p>
+            <a href="mailto:douzhichao2021@163.com" class="inline-block bg-white text-black font-bold px-10 py-4 text-lg hover:bg-blue-600 hover:text-white transition-colors duration-300">
+                SEND EMAIL ->
+            </a>
+        </div>
+    </footer>
 
 </div>
 
 <style>
-    @keyframes spin-slow {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
+    /* 简单的音频波形动画 */
+    @keyframes equalizer {
+        0%, 100% { height: 0.5rem; }
+        50% { height: 100%; }
     }
-    .animate-spin-slow {
-        animation: spin-slow 8s linear infinite;
+    .animate-eq {
+        animation: equalizer 1s ease-in-out infinite;
+    }
+    .animation-delay-100 { animation-delay: 0.1s; }
+    .animation-delay-200 { animation-delay: 0.2s; }
+    .animation-delay-300 { animation-delay: 0.3s; }
+    .animation-delay-75  { animation-delay: 0.075s; }
+
+    /* 进度条加载动画 */
+    @keyframes load {
+        0% { width: 0; }
+        100% { width: 75%; }
+    }
+    .loading-bar {
+        animation: load 2s ease-out forwards;
     }
 </style>
