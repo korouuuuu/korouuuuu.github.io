@@ -335,6 +335,8 @@ title: 关于我 - 窦智超
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
+    
+    // 1. 3D 卡片微动效 (保持不变)
     const cards = document.querySelectorAll('.tilt-card');
     cards.forEach(card => {
         card.addEventListener('mousemove', (e) => {
@@ -344,30 +346,43 @@ document.addEventListener('DOMContentLoaded', () => {
                 const y = e.clientY - rect.top;
                 const centerX = rect.width / 2;
                 const centerY = rect.height / 2;
-                const rotateX = ((y - centerY) / centerY) * -3; // 减小角度以更加稳重
+                
+                // 减小角度以更加稳重
+                const rotateX = ((y - centerY) / centerY) * -3; 
                 const rotateY = ((x - centerX) / centerX) * 3;
+
                 card.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.01, 1.01, 1.01)`;
             });
         });
+
         card.addEventListener('mouseleave', () => {
             card.style.transform = 'perspective(1200px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
         });
     });
 
+    // 2. 修复版：智能滚动动画监听 (防顶部抖动)
     const observerOptions = {
         root: null,
         threshold: 0.1, 
-        rootMargin: "0px"
+        rootMargin: "0px" 
     };
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+                // 进入视口：播放动画 (显示)
                 entry.target.classList.add('reveal-active');
             } else {
-                entry.target.classList.remove('reveal-active');
+                // 离开视口：
+                // 【关键修复】只有当元素是从视口“下方”离开时 (top > 0)，才重置动画。
+                // 如果元素是从视口“上方”滚出去的 (top < 0)，保持显示状态，避免顶部抖动。
+                if (entry.boundingClientRect.top > 0) {
+                    entry.target.classList.remove('reveal-active');
+                }
             }
         });
     }, observerOptions);
+
     document.querySelectorAll('.reveal-element').forEach(el => {
         observer.observe(el);
     });
