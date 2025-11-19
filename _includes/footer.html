@@ -1,45 +1,35 @@
-<footer id="contact-info" class="bg-gray-900 text-gray-300 pt-10 pb-8">
+<footer id="contact-info" class="bg-gray-900 text-gray-300 py-12">
     <div class="max-w-7xl mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+            
             <div>
                 <h3 class="font-bold font-serif text-white text-lg mb-4">关于我</h3>
-                <div class="flex items-center gap-4 mb-3">
+                <div class="flex items-center gap-4 mb-4">
                     <img src="{{ '/assets/images/avatar.jpg' | relative_url }}" alt="个人头像" class="w-16 h-16 object-cover rounded-full border-2 border-gray-700">
                     <div>
                         <p class="text-white font-bold text-lg">窦智超</p>
                         <p class="text-xs text-gray-500 uppercase tracking-wider">Developer & Creator</p>
                     </div>
                 </div>
-                <p class="text-sm leading-relaxed mb-5 text-gray-400">
+                <p class="text-sm leading-relaxed text-gray-400">
                     你好！我是一名热衷于代码与创造的开发者。欢迎来到我的数字花园，希望你喜欢这里的分享。
                 </p>
-                
-                <div class="flex flex-wrap gap-3">
-                    <a href="mailto:douzhichao2021@163.com" class="inline-flex items-center px-4 py-1.5 bg-white text-gray-900 rounded-full font-bold text-xs hover:bg-blue-500 hover:text-white transition-colors duration-300">
-                        <svg class="w-3.5 h-3.5 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                        Contact Me
-                    </a>
-                    
-                    <a href="https://github.com/korouuuuu" target="_blank" class="inline-flex items-center px-4 py-1.5 bg-gray-800 text-white border border-gray-700 rounded-full font-bold text-xs hover:bg-gray-700 transition-colors duration-300">
-                        <svg class="w-3.5 h-3.5 mr-1.5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" /></svg>
-                        GitHub
-                    </a>
-                </div>
             </div>
             
             <div>
                 <h3 class="font-bold font-serif text-white text-lg mb-4">最新文章</h3>
-                <ul class="space-y-3">
+                <ul class="space-y-4">
                     {% for post in site.posts limit:3 %}
                     <li class="flex items-start group">
                         <a href="{{ post.url | relative_url }}" class="shrink-0">
-                            <img src="{{ post.image_url | default: 'https://placehold.co/100x100/2d3748/ffffff?text=Blog' }}" alt="{{ post.title }}" class="w-12 h-12 object-cover rounded-lg border border-gray-800 group-hover:border-gray-600 transition-colors">
+                            <img src="{{ post.image_url | default: 'https://placehold.co/100x100/2d3748/ffffff?text=Blog' }}" alt="{{ post.title }}" class="w-14 h-14 object-cover rounded-lg border border-gray-800 group-hover:border-gray-600 transition-colors">
                         </a>
                         <div class="ml-3">
                             <a href="{{ post.url | relative_url }}" class="font-medium text-white text-sm hover:text-blue-400 transition-colors line-clamp-2 leading-snug">
                                 {{ post.title }}
                             </a>
-                            <span class="block text-xs text-gray-500 mt-0.5">{{ post.date | date: "%Y-%m-%d" }}</span>
+                            <span class="block text-xs text-gray-500 mt-1">{{ post.date | date: "%Y-%m-%d" }}</span>
                         </div>
                     </li>
                     {% endfor %}
@@ -49,22 +39,38 @@
             <div>
                 <h3 class="font-bold font-serif text-white text-lg mb-4">标签云</h3>
                 <div class="flex flex-wrap gap-2">
-                    <a href="#" class="text-xs font-medium bg-gray-800 text-gray-400 px-2.5 py-1 rounded hover:bg-gray-700 hover:text-white transition-colors">Python</a>
-                    <a href="#" class="text-xs font-medium bg-gray-800 text-gray-400 px-2.5 py-1 rounded hover:bg-gray-700 hover:text-white transition-colors">PyTorch</a>
-                    <a href="#" class="text-xs font-medium bg-gray-800 text-gray-400 px-2.5 py-1 rounded hover:bg-gray-700 hover:text-white transition-colors">C++</a>
-                    <a href="#" class="text-xs font-medium bg-gray-800 text-gray-400 px-2.5 py-1 rounded hover:bg-gray-700 hover:text-white transition-colors">Docker</a>
-                    <a href="#" class="text-xs font-medium bg-gray-800 text-gray-400 px-2.5 py-1 rounded hover:bg-gray-700 hover:text-white transition-colors">Algorithm</a>
-                    <a href="#" class="text-xs font-medium bg-gray-800 text-gray-400 px-2.5 py-1 rounded hover:bg-gray-700 hover:text-white transition-colors">Linux</a>
-                    <a href="#" class="text-xs font-medium bg-gray-800 text-gray-400 px-2.5 py-1 rounded hover:bg-gray-700 hover:text-white transition-colors">Figma</a>
-                    <a href="#" class="text-xs font-medium bg-gray-800 text-gray-400 px-2.5 py-1 rounded hover:bg-gray-700 hover:text-white transition-colors">Photography</a>
+                    <a href="#" class="text-xs font-medium bg-gray-800 text-gray-400 px-3 py-1.5 rounded hover:bg-gray-700 hover:text-white transition-colors">Python</a>
+                    <a href="#" class="text-xs font-medium bg-gray-800 text-gray-400 px-3 py-1.5 rounded hover:bg-gray-700 hover:text-white transition-colors">PyTorch</a>
+                    <a href="#" class="text-xs font-medium bg-gray-800 text-gray-400 px-3 py-1.5 rounded hover:bg-gray-700 hover:text-white transition-colors">C++</a>
+                    <a href="#" class="text-xs font-medium bg-gray-800 text-gray-400 px-3 py-1.5 rounded hover:bg-gray-700 hover:text-white transition-colors">Docker</a>
+                    <a href="#" class="text-xs font-medium bg-gray-800 text-gray-400 px-3 py-1.5 rounded hover:bg-gray-700 hover:text-white transition-colors">Algorithm</a>
+                    <a href="#" class="text-xs font-medium bg-gray-800 text-gray-400 px-3 py-1.5 rounded hover:bg-gray-700 hover:text-white transition-colors">Linux</a>
+                    <a href="#" class="text-xs font-medium bg-gray-800 text-gray-400 px-3 py-1.5 rounded hover:bg-gray-700 hover:text-white transition-colors">Figma</a>
+                    <a href="#" class="text-xs font-medium bg-gray-800 text-gray-400 px-3 py-1.5 rounded hover:bg-gray-700 hover:text-white transition-colors">Photography</a>
                 </div>
             </div>
         </div>
 
-        <div class="border-t border-gray-800 pt-8 text-right">
-            <p class="text-xs text-gray-500">
-                &copy; 2025 <span class="text-gray-300">Dou Zhichao</span>. All Rights Reserved.
-            </p>
+        <div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
+            
+            <div class="flex gap-3">
+                <a href="mailto:douzhichao2021@163.com" class="inline-flex items-center px-4 py-2 bg-white text-gray-900 rounded-full font-bold text-xs hover:bg-blue-500 hover:text-white transition-colors duration-300">
+                    <svg class="w-3.5 h-3.5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    Contact Me
+                </a>
+                <a href="https://github.com/korouuuuu" target="_blank" class="inline-flex items-center px-4 py-2 bg-gray-800 text-white border border-gray-700 rounded-full font-bold text-xs hover:bg-gray-700 transition-colors duration-300">
+                    <svg class="w-3.5 h-3.5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" /></svg>
+                    GitHub
+                </a>
+            </div>
+
+            <div class="text-right">
+                <p class="text-xs text-gray-500">
+                    &copy; 2025 <span class="text-gray-300">Dou Zhichao</span>. All Rights Reserved.
+                </p>
+            </div>
+            
         </div>
+
     </div>
 </footer>
