@@ -1,6 +1,4 @@
 ---
-# 告诉 Jekyll：这个布局本身也“嵌套”在 default 布局中
-# 这样我们的文章页也能拥有统一的导航栏和页脚
 layout: default
 ---
 
@@ -8,18 +6,39 @@ layout: default
 
     <div class="max-w-3xl mx-auto px-6">
 
-        <header class="mb-12">
-            <h1 class="font-serif text-4xl md:text-5xl font-bold text-gray-900">
+        <header class="mb-12 text-center">
+            <span class="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-wider uppercase rounded-full bg-gray-100 text-gray-600">
+                {{ page.category | default: "Blog" }}
+            </span>
+            
+            <h1 class="font-fun text-4xl md:text-5xl text-gray-900 leading-tight mb-4">
                 {{ page.title }}
             </h1>
-            <p class="mt-4 text-lg text-gray-600">
-                {{ page.date | date: "%Y年%m月%d日" }} &bull; {{ page.author | default: site.author }}
+            
+            <p class="text-gray-500 font-mono text-sm">
+                {{ page.date | date: "%Y年%m月%d日" }}
             </p>
         </header>
 
-        <article class="prose prose-lg lg:prose-xl max-w-none">
+        <article class="prose prose-slate prose-lg max-w-none prose-headings:font-fun prose-headings:font-normal prose-img:rounded-xl prose-img:shadow-md">
             {{ content }}
         </article>
+        
+        <div class="mt-16 pt-8 border-t border-gray-200 flex justify-between text-sm font-fun">
+            {% if page.previous.url %}
+            <a href="{{ page.previous.url | relative_url }}" class="text-blue-600 hover:underline">
+                &larr; {{ page.previous.title }}
+            </a>
+            {% else %}
+            <span></span>
+            {% endif %}
+            
+            {% if page.next.url %}
+            <a href="{{ page.next.url | relative_url }}" class="text-blue-600 hover:underline">
+                {{ page.next.title }} &rarr;
+            </a>
+            {% endif %}
+        </div>
 
     </div>
 </div>

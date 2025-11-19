@@ -1,21 +1,32 @@
-<article class="bg-white rounded-lg shadow-md overflow-hidden transition-shadow duration-300 hover:shadow-xl">
+<article class="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col h-full">
     <a href="{{ post.url | relative_url }}">
         <img src="{{ post.image_url }}" 
              onerror="this.src='https://placehold.co/600x400/c0c0c0/ffffff?text=Image+Missing'"
-             alt="{{ post.title }}" class="w-full h-56 object-cover">
+             alt="{{ post.title }}" class="w-full h-48 object-cover">
     </a>
-    <div class="p-6">
-        <span class="text-sm font-semibold {{ post.category_color | default: 'text-gray-600' }} uppercase">{{ post.category }}</span>
-        <h3 class="mt-2 text-2xl font-bold font-serif">
-            <a href="{{ post.url | relative_url }}" class="hover:{{ post.category_color | default: 'text-gray-600' | replace: 'text', 'hover:text' }}">{{ post.title }}</a>
-        </h3>
-        <div class="flex items-center mt-4">
-            <img src="{{ post.author_image | default: 'https://placehold.co/40x40/c0c0c0/ffffff?text=A' }}" alt="作者头像" class="w-10 h-10 rounded-full object-cover">
-            <div class="ml-3">
-                <span class="font-semibold text-gray-900">{{ post.author | default: site.author }}</span>
-                <span class="block text-sm text-gray-600">{{ post.date | date: "%B %d, %Y" }}</span>
-            </div>
+    <div class="p-5 flex flex-col flex-grow">
+        <div class="flex justify-between items-baseline mb-2">
+            <span class="text-xs font-bold tracking-wider {{ post.category_color | default: 'text-gray-600' }} uppercase">
+                {{ post.category }}
+            </span>
+            <span class="text-xs text-gray-400 font-mono">{{ post.date | date: "%Y-%m-%d" }}</span>
         </div>
-        <a href="{{ post.url | relative_url }}" class="mt-6 inline-block {{ post.category_color | default: 'text-blue-600' }} font-semibold hover:underline">阅读全文 &rarr;</a>
+        
+        <h3 class="text-xl font-bold font-fun mb-2 leading-tight">
+            <a href="{{ post.url | relative_url }}" class="text-gray-900 hover:{{ post.category_color | default: 'text-blue-600' | replace: 'text', 'text' }} transition-colors">
+                {{ post.title }}
+            </a>
+        </h3>
+        
+        <p class="text-gray-600 text-sm line-clamp-2 mb-4 flex-grow">
+            {{ post.excerpt | strip_html | truncate: 60 }}
+        </p>
+
+        <div class="pt-3 border-t border-gray-100 mt-auto">
+            <a href="{{ post.url | relative_url }}" class="text-sm font-semibold {{ post.category_color | default: 'text-blue-600' }} hover:underline flex items-center">
+                阅读全文 
+                <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            </a>
+        </div>
     </div>
 </article>

@@ -9,15 +9,35 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800;900&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
     
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        'sans': ['Inter', 'sans-serif'],
+                        'sans': ['Inter', 'sans-serif', 'system-ui'],
                         'serif': ['Playfair Display', 'serif'],
+                        'fun': ['"ZCOOL XiaoWei"', 'serif'], // 自定义趣味字体
+                    },
+                    typography: {
+                        DEFAULT: {
+                            css: {
+                                maxWidth: '100%', // 取消最大宽度限制，让布局更舒展
+                                color: '#374151',
+                                // 让文章内的标题自动使用 ZCOOL XiaoWei 字体
+                                'h1, h2, h3, h4': {
+                                    fontFamily: '"ZCOOL XiaoWei", serif',
+                                    fontWeight: '400',
+                                },
+                                a: {
+                                    color: '#3182ce',
+                                    '&:hover': {
+                                        color: '#2c5282',
+                                    },
+                                },
+                            }
+                        }
                     }
                 }
             }
@@ -28,15 +48,20 @@
         .icon-search { width: 20px; height: 20px; stroke: currentColor; stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
         .icon-menu { width: 24px; height: 24px; stroke: currentColor; stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
         html { scroll-behavior: smooth; }
+        
+        /* 简单的淡入动画 */
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade-in { animation: fadeIn 0.5s ease-out forwards; }
+
         #blog-grid > article { transition: all 0.4s ease-in-out; opacity: 1; transform: translateY(0); }
         #blog-grid > article:nth-child(n+7) { display: none; opacity: 0; transform: translateY(20px); }
     </style>
 </head>
-<body class="font-sans bg-white text-gray-900">
+<body class="font-sans bg-white text-gray-900 flex flex-col min-h-screen">
 
     {% include nav.html %}
 
-    <main>
+    <main class="flex-grow">
         {{ content }}
     </main>
 
@@ -72,7 +97,7 @@
             e.preventDefault();
             const nextShow = currentlyShown + postsPerLoad;
             for (let i = currentlyShown; i < nextShow && i < allPosts.length; i++) {
-                allPosts[i].style.display = 'block'; 
+                allPosts[i].style.display = 'flex'; // 恢复为 flex 布局以保持卡片高度一致
                 setTimeout(() => {
                     allPosts[i].style.opacity = '1';
                     allPosts[i].style.transform = 'translateY(0)';
@@ -89,27 +114,22 @@
     <script src="https://cdn.jsdelivr.net/npm/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
 
     <script>
-        // 2. 处理搜索遮罩层的打开和关闭
         const searchTrigger = document.getElementById('search-trigger');
         const searchOverlay = document.getElementById('search-overlay');
         const searchClose = document.getElementById('search-close');
         const searchInput = document.getElementById('search-input');
 
         if(searchTrigger && searchOverlay && searchClose) {
-            // 打开搜索
             searchTrigger.addEventListener('click', (e) => {
                 e.preventDefault();
                 searchOverlay.classList.remove('hidden');
-                // 自动聚焦到输入框
                 setTimeout(() => searchInput.focus(), 100);
             });
 
-            // 关闭搜索
             searchClose.addEventListener('click', () => {
                 searchOverlay.classList.add('hidden');
             });
 
-            // 按 ESC 键也可以关闭
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape' && !searchOverlay.classList.contains('hidden')) {
                     searchOverlay.classList.add('hidden');
@@ -117,8 +137,6 @@
             });
         }
 
-        // 3. 初始化 Simple Jekyll Search
-        // 它会自动抓取 search.json 并根据输入框的内容渲染结果
         if(document.getElementById('search-input')) {
             SimpleJekyllSearch({
                 searchInput: document.getElementById('search-input'),
@@ -128,7 +146,7 @@
                     <li class="border-b border-gray-800 pb-4 animate-fade-in">
                         <a href="{url}" class="block group">
                             <span class="text-sm text-gray-500 mb-1 block">{date}</span>
-                            <h3 class="text-2xl font-serif text-white group-hover:text-blue-400 transition-colors">
+                            <h3 class="text-2xl font-fun text-white group-hover:text-blue-400 transition-colors">
                                 {title}
                             </h3>
                         </a>
