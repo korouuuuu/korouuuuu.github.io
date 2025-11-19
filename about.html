@@ -35,7 +35,6 @@ title: 关于我 - 窦智超
         border: 1px solid rgba(255, 255, 255, 0.6);
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     }
-    /* 悬停提升效果 */
     .tilt-card:hover {
         box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
         background: #ffffff;
@@ -63,9 +62,9 @@ title: 关于我 - 窦智超
     .bg-grid-tech { background-image: linear-gradient(#e2e8f0 1px, transparent 1px), linear-gradient(90deg, #e2e8f0 1px, transparent 1px); background-size: 20px 20px; }
     .bg-grid-dot { background-image: radial-gradient(#cbd5e1 1px, transparent 1px); background-size: 20px 20px; }
 
-    /* 技能标签 */
+    /* 技能标签 (稍微减小 padding) */
     .skill-tag {
-        display: inline-flex; align-items: center; padding: 8px 12px; border-radius: 8px;
+        display: inline-flex; align-items: center; padding: 6px 10px; border-radius: 8px;
         font-size: 0.85rem; font-weight: 600; transition: all 0.2s;
         background-color: #f8fafc; color: #475569; border: 1px solid transparent;
     }
@@ -78,79 +77,79 @@ title: 关于我 - 窦智超
     }
     .paper-item:hover {
         background-color: #fafafa;
-        padding-left: 10px; /* 悬停时微动 */
+        padding-left: 10px; 
     }
     .paper-item:last-child { border-bottom: none; }
 
 </style>
 
-<div id="main-container" class="w-full pt-24">
+<div id="main-container" class="w-full pt-20">
 
-    <section class="min-h-[85vh] flex flex-col justify-center relative px-6 pb-10 overflow-hidden bg-[#F5F5F7]">
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-white rounded-full blur-[120px] pointer-events-none"></div>
+    <section class="min-h-[80vh] flex flex-col justify-center relative px-6 pb-10 overflow-hidden bg-[#F5F5F7]">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-white rounded-full blur-[100px] pointer-events-none"></div>
 
-        <div class="max-w-6xl mx-auto w-full z-10 grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
-            <div class="md:col-span-7 space-y-8 order-2 md:order-1 text-center md:text-left">
+        <div class="max-w-6xl mx-auto w-full z-10 grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
+            <div class="md:col-span-7 space-y-6 order-2 md:order-1 text-center md:text-left">
                 <div class="reveal-element">
                     <h1 class="font-bold tracking-tight leading-none text-black mb-2">
-                        <span class="text-6xl md:text-8xl block mb-2">窦智超</span>
-                        <span class="text-3xl md:text-4xl text-gray-400 font-medium block">Dou Zhichao.</span>
+                        <span class="text-5xl md:text-7xl block mb-2">窦智超</span>
+                        <span class="text-2xl md:text-3xl text-gray-400 font-medium block">Dou Zhichao.</span>
                     </h1>
                 </div>
                 <div class="reveal-element space-y-4" style="transition-delay: 0.1s;">
-                    <div class="flex flex-wrap gap-3 justify-center md:justify-start">
-                        <span class="px-3 py-1 rounded-md bg-blue-100 text-blue-700 text-sm font-bold">ENTJ-T 指挥官</span>
-                        <span class="px-3 py-1 rounded-md bg-gray-200 text-gray-700 text-sm font-bold">Infinite Loop</span>
+                    <div class="flex flex-wrap gap-2 justify-center md:justify-start">
+                        <span class="px-3 py-1 rounded-md bg-blue-100 text-blue-700 text-xs font-bold">ENTJ-T 指挥官</span>
+                        <span class="px-3 py-1 rounded-md bg-gray-200 text-gray-700 text-xs font-bold">Infinite Loop</span>
                     </div>
-                    <p class="text-xl md:text-2xl text-gray-500 font-medium leading-relaxed">
+                    <p class="text-lg md:text-xl text-gray-500 font-medium leading-relaxed">
                         <span class="text-gray-900">算法工程师</span> & <span class="text-gray-900">生活观察员</span>
                     </p>
-                    <p class="text-lg text-gray-400">
+                    <p class="text-base md:text-lg text-gray-400">
                         生于泰山脚下 / 📍 定居青岛
                     </p>
                 </div>
             </div>
             <div class="md:col-span-5 flex justify-center md:justify-end order-1 md:order-2 perspective-container reveal-element" style="transition-delay: 0.2s;">
-                <div class="tilt-card w-64 md:w-72 aspect-[3/4] relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white rotate-2 hover:rotate-0 transition-all duration-500 bg-gray-200">
+                <div class="tilt-card w-56 md:w-64 aspect-[3/4] relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white rotate-2 hover:rotate-0 transition-all duration-500 bg-gray-200">
                     <img src="{{ '/assets/images/avatar.jpg' | relative_url }}" class="w-full h-full object-cover" alt="Avatar">
                 </div>
             </div>
         </div>
-        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-gray-400 animate-bounce">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 text-gray-400 animate-bounce">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
         </div>
     </section>
 
 
-    <section class="py-24 bg-white relative overflow-hidden">
-        <div class="absolute top-10 right-0 text-[200px] font-black text-gray-50 opacity-[0.02] pointer-events-none select-none leading-none">SKILLS</div>
+    <section class="py-20 bg-white relative overflow-hidden">
+        <div class="absolute top-10 right-0 text-[150px] font-black text-gray-50 opacity-[0.02] pointer-events-none select-none leading-none">SKILLS</div>
 
         <div class="max-w-5xl mx-auto px-6">
-            <div class="mb-16 reveal-element text-center md:text-left">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Ability Map.</h2>
-                <p class="text-xl text-gray-500">左手代码逻辑，右手视觉创意。</p>
+            <div class="mb-12 reveal-element text-center md:text-left">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">Ability Map.</h2>
+                <p class="text-lg text-gray-500">左手代码逻辑，右手视觉创意。</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 perspective-container">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 perspective-container">
                 
-                <div class="tilt-card relative rounded-3xl p-8 h-full overflow-hidden reveal-element group">
+                <div class="tilt-card relative rounded-3xl p-6 h-full overflow-hidden reveal-element group">
                     <div class="absolute inset-0 bg-grid-tech opacity-30"></div>
                     <div class="absolute -right-6 -bottom-6 text-blue-50 opacity-50 transform rotate-12 group-hover:rotate-6 transition-transform duration-500">
-                        <svg class="w-48 h-48" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-5 14H9v-2h6v2zm-3-7c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-6H9V3h6v2z"/></svg>
+                        <svg class="w-40 h-40" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-5 14H9v-2h6v2zm-3-7c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-6H9V3h6v2z"/></svg>
                     </div>
 
                     <div class="relative z-10 flex flex-col h-full">
                         <div class="flex items-center justify-between mb-6">
                             <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 rounded-lg bg-blue-600 text-white flex items-center justify-center shadow-lg shadow-blue-200">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                <div class="w-8 h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center shadow-lg shadow-blue-200">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                                 </div>
-                                <h3 class="text-2xl font-bold text-gray-800 font-mono">Dev_Loop<span class="cursor-blink"></span></h3>
+                                <h3 class="text-xl font-bold text-gray-800 font-mono">Dev_Loop<span class="cursor-blink"></span></h3>
                             </div>
-                            <span class="text-xl opacity-20 grayscale hover:opacity-100 hover:grayscale-0 transition-all cursor-pointer" title="No Bugs!">🐞</span>
+                            <span class="text-lg opacity-20 grayscale hover:opacity-100 hover:grayscale-0 transition-all cursor-pointer" title="No Bugs!">🐞</span>
                         </div>
                         
-                        <div class="flex flex-wrap gap-2 mb-8 flex-1 content-start">
+                        <div class="flex flex-wrap gap-2 mb-6 flex-1 content-start">
                             <span class="skill-tag wiggle-hover text-blue-600 bg-blue-50 border-blue-100">Python</span>
                             <span class="skill-tag wiggle-hover text-blue-600 bg-blue-50 border-blue-100">PyTorch</span>
                             <span class="skill-tag wiggle-hover">C++</span>
@@ -161,28 +160,28 @@ title: 关于我 - 窦智超
                         </div>
                         
                         <div class="pt-4 border-t border-gray-100">
-                            <div class="text-xs text-gray-400 mb-2 font-mono">CONTRIBUTION ACTIVITY</div>
+                            <div class="text-[10px] text-gray-400 mb-1 font-mono">CONTRIBUTION ACTIVITY</div>
                             <div class="flex gap-1 opacity-60">
-                                <div class="w-3 h-3 bg-green-200 rounded-sm"></div><div class="w-3 h-3 bg-green-400 rounded-sm"></div><div class="w-3 h-3 bg-green-500 rounded-sm"></div><div class="w-3 h-3 bg-gray-200 rounded-sm"></div><div class="w-3 h-3 bg-green-300 rounded-sm"></div><div class="w-3 h-3 bg-green-500 rounded-sm"></div><div class="w-3 h-3 bg-green-400 rounded-sm"></div>
+                                <div class="w-2.5 h-2.5 bg-green-200 rounded-sm"></div><div class="w-2.5 h-2.5 bg-green-400 rounded-sm"></div><div class="w-2.5 h-2.5 bg-green-500 rounded-sm"></div><div class="w-2.5 h-2.5 bg-gray-200 rounded-sm"></div><div class="w-2.5 h-2.5 bg-green-300 rounded-sm"></div><div class="w-2.5 h-2.5 bg-green-500 rounded-sm"></div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="tilt-card relative rounded-3xl p-8 h-full overflow-hidden reveal-element group" style="transition-delay: 0.1s;">
+                <div class="tilt-card relative rounded-3xl p-6 h-full overflow-hidden reveal-element group" style="transition-delay: 0.1s;">
                     <div class="absolute inset-0 bg-grid-dot opacity-30"></div>
-                    <div class="absolute top-10 right-10 w-12 h-12 bg-purple-100 rounded-full mix-blend-multiply blur-sm opacity-60 float-anim pointer-events-none"></div>
-                    <div class="absolute bottom-20 right-20 w-16 h-16 bg-pink-100 rounded-full mix-blend-multiply blur-md opacity-60 float-anim-delay pointer-events-none"></div>
+                    <div class="absolute top-10 right-10 w-10 h-10 bg-purple-100 rounded-full mix-blend-multiply blur-sm opacity-60 float-anim pointer-events-none"></div>
+                    <div class="absolute bottom-20 right-20 w-14 h-14 bg-pink-100 rounded-full mix-blend-multiply blur-md opacity-60 float-anim-delay pointer-events-none"></div>
 
                     <div class="relative z-10 flex flex-col h-full">
                         <div class="flex items-center gap-3 mb-6">
-                            <div class="w-10 h-10 rounded-lg bg-purple-600 text-white flex items-center justify-center shadow-lg shadow-purple-200">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path></svg>
+                            <div class="w-8 h-8 rounded-lg bg-purple-600 text-white flex items-center justify-center shadow-lg shadow-purple-200">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path></svg>
                             </div>
-                            <h3 class="text-2xl font-bold text-gray-800 font-serif italic">Creative Studio.</h3>
+                            <h3 class="text-xl font-bold text-gray-800 font-serif italic">Creative Studio.</h3>
                         </div>
                         
-                        <div class="flex flex-wrap gap-2 mb-8 flex-1 content-start">
+                        <div class="flex flex-wrap gap-2 mb-6 flex-1 content-start">
                             <span class="skill-tag wiggle-hover text-purple-600 bg-purple-50 border-purple-100">Figma</span>
                             <span class="skill-tag wiggle-hover text-pink-600 bg-pink-50 border-pink-100">Photoshop</span>
                             <span class="skill-tag wiggle-hover">Premiere Pro</span>
@@ -191,11 +190,11 @@ title: 关于我 - 窦智超
                         </div>
                         
                         <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
-                            <div class="text-xs text-gray-400 font-mono">PALETTE</div>
+                            <div class="text-[10px] text-gray-400 font-mono">PALETTE</div>
                             <div class="flex -space-x-2">
-                                <div class="w-6 h-6 rounded-full bg-[#FF6B6B] border-2 border-white shadow-sm"></div>
-                                <div class="w-6 h-6 rounded-full bg-[#4ECDC4] border-2 border-white shadow-sm"></div>
-                                <div class="w-6 h-6 rounded-full bg-[#FFE66D] border-2 border-white shadow-sm"></div>
+                                <div class="w-5 h-5 rounded-full bg-[#FF6B6B] border-2 border-white shadow-sm"></div>
+                                <div class="w-5 h-5 rounded-full bg-[#4ECDC4] border-2 border-white shadow-sm"></div>
+                                <div class="w-5 h-5 rounded-full bg-[#FFE66D] border-2 border-white shadow-sm"></div>
                             </div>
                         </div>
                     </div>
@@ -205,53 +204,53 @@ title: 关于我 - 窦智超
     </section>
 
 
-    <section class="py-24 bg-[#F5F5F7] border-t border-white">
+    <section class="py-20 bg-[#F5F5F7] border-t border-white">
         <div class="max-w-4xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center mb-12 reveal-element">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Selected Publications</h2>
-                <a href="https://scholar.google.com/citations?user=gujf9CoAAAAJ&hl=zh-CN&oi=ao" target="_blank" class="mt-4 md:mt-0 flex items-center gap-2 text-blue-600 font-semibold hover:text-blue-800 transition-colors">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/></svg>
+            <div class="flex flex-col md:flex-row justify-between items-center mb-10 reveal-element">
+                <h2 class="text-3xl md:text-3xl font-bold text-gray-900">Selected Publications</h2>
+                <a href="https://scholar.google.com/citations?user=gujf9CoAAAAJ&hl=zh-CN&oi=ao" target="_blank" class="mt-4 md:mt-0 flex items-center gap-2 text-blue-600 text-sm font-semibold hover:text-blue-800 transition-colors">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/></svg>
                     Google Scholar Profile &rarr;
                 </a>
             </div>
 
             <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden reveal-element" style="transition-delay: 0.1s;">
-                <div class="p-6 md:p-8 space-y-6">
+                <div class="p-6 space-y-5">
                     
-                    <div class="paper-item pb-6">
+                    <div class="paper-item pb-5">
                         <div class="flex flex-col md:flex-row gap-2 md:items-baseline">
-                            <span class="text-sm font-bold text-blue-600 shrink-0">[CVPR 2024]</span>
-                            <h3 class="text-lg font-bold text-gray-900 hover:text-blue-600 transition-colors">
+                            <span class="text-xs font-bold text-blue-600 shrink-0">[CVPR 2024]</span>
+                            <h3 class="text-base font-bold text-gray-900 hover:text-blue-600 transition-colors">
                                 Hmanet: Hybrid multi-axis aggregation network for image super-resolution
                             </h3>
                         </div>
-                        <p class="text-gray-500 text-sm mt-2">
+                        <p class="text-gray-500 text-xs mt-1">
                             Shu-Chuan Chu, <span class="font-bold text-gray-900">Zhi-Chao Dou</span>, Jeng-Shyang Pan, Shaowei Weng, Junbao Li.
                             <br><span class="italic">Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition.</span>
                         </p>
                     </div>
 
-                    <div class="paper-item pb-6">
+                    <div class="paper-item pb-5">
                         <div class="flex flex-col md:flex-row gap-2 md:items-baseline">
-                            <span class="text-sm font-bold text-blue-600 shrink-0">[CVPRW 2024]</span>
-                            <h3 class="text-lg font-bold text-gray-900 hover:text-blue-600 transition-colors">
+                            <span class="text-xs font-bold text-blue-600 shrink-0">[CVPRW 2024]</span>
+                            <h3 class="text-base font-bold text-gray-900 hover:text-blue-600 transition-colors">
                                 NTIRE 2024 Challenge on Image Super-Resolution (x4): Methods and Results
                             </h3>
                         </div>
-                        <p class="text-gray-500 text-sm mt-2">
+                        <p class="text-gray-500 text-xs mt-1">
                             Zheng Chen, ..., <span class="font-bold text-gray-900">Zhi-Chao Dou</span>, et al.
                             <br><span class="italic">Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshops.</span>
                         </p>
                     </div>
 
-                    <div class="paper-item pb-6">
+                    <div class="paper-item pb-5">
                         <div class="flex flex-col md:flex-row gap-2 md:items-baseline">
-                            <span class="text-sm font-bold text-gray-500 shrink-0">[Journal 2024]</span>
-                            <h3 class="text-lg font-bold text-gray-900 hover:text-blue-600 transition-colors">
+                            <span class="text-xs font-bold text-gray-500 shrink-0">[Journal 2024]</span>
+                            <h3 class="text-base font-bold text-gray-900 hover:text-blue-600 transition-colors">
                                 DWSR: an architecture optimization framework for adaptive super-resolution neural networks based on meta-heuristics
                             </h3>
                         </div>
-                        <p class="text-gray-500 text-sm mt-2">
+                        <p class="text-gray-500 text-xs mt-1">
                             Shu-Chuan Chu, <span class="font-bold text-gray-900">Zhi-Chao Dou</span>, Jeng-Shyang Pan, et al.
                             <br><span class="italic">Artificial Intelligence Review.</span>
                         </p>
@@ -259,12 +258,12 @@ title: 关于我 - 窦智超
 
                     <div class="paper-item">
                         <div class="flex flex-col md:flex-row gap-2 md:items-baseline">
-                            <span class="text-sm font-bold text-gray-500 shrink-0">[Journal 2024]</span>
-                            <h3 class="text-lg font-bold text-gray-900 hover:text-blue-600 transition-colors">
+                            <span class="text-xs font-bold text-gray-500 shrink-0">[Journal 2024]</span>
+                            <h3 class="text-base font-bold text-gray-900 hover:text-blue-600 transition-colors">
                                 GBRUN: a gradient search-based binary Runge Kutta optimizer for feature selection
                             </h3>
                         </div>
-                        <p class="text-gray-500 text-sm mt-2">
+                        <p class="text-gray-500 text-xs mt-1">
                             <span class="font-bold text-gray-900">Zhi-Chao Dou</span>, Shu-Chuan Chu, Zhongjie Zhuang, et al.
                             <br><span class="italic">Journal of Internet Technology.</span>
                         </p>
@@ -276,16 +275,16 @@ title: 关于我 - 窦智超
     </section>
 
 
-    <section class="py-24 bg-white">
+    <section class="py-20 bg-white">
         <div class="max-w-6xl mx-auto px-6">
-            <div class="flex justify-between items-end mb-12 reveal-element">
+            <div class="flex justify-between items-end mb-10 reveal-element">
                 <div>
-                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-2">Life Slices.</h2>
-                    <p class="text-xl text-gray-500">工作之外，我是谁。</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Life Slices.</h2>
+                    <p class="text-lg text-gray-500">工作之外，我是谁。</p>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px]">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[260px]">
                 <div class="md:col-span-2 md:row-span-1 group relative rounded-3xl overflow-hidden reveal-element shadow-sm">
                     <img src="{{ '/assets/images/cooking.jpg' | relative_url }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Cooking">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
@@ -307,24 +306,22 @@ title: 关于我 - 窦智超
                         <p class="text-gray-200 text-sm">记录不可复制的瞬间。</p>
                     </div>
                 </div>
+                
                 <div class="md:col-span-2 relative rounded-3xl overflow-hidden reveal-element shadow-md group" style="transition-delay: 0.3s;">
                     <img src="{{ '/assets/images/driving-shot.jpg' | relative_url }}" 
                         class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" 
                         alt="Driving Shot">
                     
                     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8 md:p-10">
-                        
-                        <h3 class="text-3xl md:text-4xl font-bold text-white mb-2 drop-shadow-md">
+                        <h3 class="text-2xl md:text-3xl font-bold text-white mb-2 drop-shadow-md">
                             驾驶
                         </h3>
-                        
-                        <p class="text-gray-200 text-lg md:text-xl mb-6 max-w-md leading-relaxed drop-shadow-sm">
+                        <p class="text-gray-200 text-base md:text-lg mb-4 max-w-md leading-relaxed drop-shadow-sm">
                             享受在路上的每一刻。
                         </p>
-                        
                         <div>
-                            <span class="inline-flex items-center px-4 py-2 rounded-full bg-white/20 backdrop-blur-md text-white text-sm font-bold border border-white/30 shadow-lg">
-                                <span class="w-2 h-2 rounded-full bg-green-400 mr-2 animate-pulse"></span>
+                            <span class="inline-flex items-center px-3 py-1.5 rounded-full bg-white/20 backdrop-blur-md text-white text-xs font-bold border border-white/30 shadow-lg">
+                                <span class="w-1.5 h-1.5 rounded-full bg-green-400 mr-2 animate-pulse"></span>
                                 Status: 人车合一
                             </span>
                         </div>
@@ -335,32 +332,32 @@ title: 关于我 - 窦智超
     </section>
 
 
-    <section class="py-24 bg-white">
+    <section class="py-20 bg-white">
         <div class="max-w-3xl mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-16 text-gray-300 tracking-widest uppercase reveal-element">History Log</h2>
-            <div class="border-l-2 border-gray-200 pl-8 space-y-12">
+            <h2 class="text-2xl font-bold text-center mb-12 text-gray-300 tracking-widest uppercase reveal-element">History Log</h2>
+            <div class="border-l-2 border-gray-200 pl-8 space-y-10">
                 <div class="relative reveal-element">
                     <span class="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-white border-4 border-blue-500"></span>
                     <div class="flex flex-col">
-                        <span class="text-4xl font-bold text-gray-900">2025</span>
-                        <h3 class="text-xl font-bold text-gray-800 mt-2">解锁“赶海”成就</h3>
-                        <p class="text-gray-600 mt-2 leading-relaxed">与王老师一起探索海岸线，收获了满满的快乐。</p>
+                        <span class="text-3xl font-bold text-gray-900">2025</span>
+                        <h3 class="text-lg font-bold text-gray-800 mt-2">解锁“赶海”成就</h3>
+                        <p class="text-gray-600 mt-1 leading-relaxed text-sm">与王老师一起探索海岸线，收获了满满的快乐。</p>
                     </div>
                 </div>
                 <div class="relative reveal-element">
                     <span class="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-white border-4 border-gray-400"></span>
                     <div class="flex flex-col">
-                        <span class="text-4xl font-bold text-gray-400">2023</span>
-                        <h3 class="text-xl font-bold text-gray-800 mt-2">CVPR & 入职赛轮</h3>
-                        <p class="text-gray-600 mt-2 leading-relaxed">发表 CVPR 顶会论文，同年正式入职赛轮，开启算法工程师生涯。</p>
+                        <span class="text-3xl font-bold text-gray-400">2023</span>
+                        <h3 class="text-lg font-bold text-gray-800 mt-2">CVPR & 入职赛轮</h3>
+                        <p class="text-gray-600 mt-1 leading-relaxed text-sm">发表 CVPR 顶会论文，同年正式入职赛轮，开启算法工程师生涯。</p>
                     </div>
                 </div>
                 <div class="relative reveal-element">
                     <span class="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-white border-4 border-gray-300"></span>
                     <div class="flex flex-col">
-                        <span class="text-4xl font-bold text-gray-300">2021</span>
-                        <h3 class="text-xl font-bold text-gray-800 mt-2">考研 & 恋爱</h3>
-                        <p class="text-gray-600 mt-2 leading-relaxed">充满幸运的一年，所有的努力都得到了最好的回报。</p>
+                        <span class="text-3xl font-bold text-gray-300">2021</span>
+                        <h3 class="text-lg font-bold text-gray-800 mt-2">考研 & 恋爱</h3>
+                        <p class="text-gray-600 mt-1 leading-relaxed text-sm">充满幸运的一年，所有的努力都得到了最好的回报。</p>
                     </div>
                 </div>
             </div>
@@ -404,11 +401,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // 进入视口 -> 显示
                 entry.target.classList.add('reveal-active');
             } else {
-                // 离开视口：仅当元素位于视口下方 (top > 0) 时才隐藏
-                // 这样从顶部滚出去的元素会保持显示，不会闪烁
                 if (entry.boundingClientRect.top > 0) {
                     entry.target.classList.remove('reveal-active');
                 }
