@@ -2,46 +2,37 @@
     <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
         <div>
             <h3 class="font-bold font-serif text-white text-lg mb-4">关于我</h3>
-            <img src="https://placehold.co/400x400/c0c0c0/ffffff?text=A" alt="个人头像" class="w-24 h-24 object-cover rounded-full mb-4">
-            <p class="text-sm">你好！我叫 James，是一名开发者和创作者。欢迎来到我的数字花园，希望你喜欢这里的分享。</p>
+            <img src="{{ '/assets/images/avatar.jpg' | relative_url }}" alt="个人头像" class="w-24 h-24 object-cover rounded-full mb-4">
+            <p class="text-sm">你好！我叫 窦智超，是一名开发者和创作者。欢迎来到我的数字花园，希望你喜欢这里的分享。</p>
         </div>
         
         <div>
             <h3 class="font-bold font-serif text-white text-lg mb-4">最新文章</h3>
             <ul class="space-y-4">
+                {% for post in site.posts limit:3 %}
                 <li class="flex items-center">
-                    <img src="https://placehold.co/100x100/80a1bf/ffffff?text=Post+1" alt="最新文章" class="w-16 h-16 object-cover rounded-lg mr-4">
+                    <img src="{{ post.image_url | default: 'https://placehold.co/100x100/80a1bf/ffffff?text=Post' }}" alt="{{ post.title }}" class="w-16 h-16 object-cover rounded-lg mr-4">
                     <div>
-                        <a href="#" class="font-semibold text-white hover:underline">构建我的第一个 App</a>
-                        <span class="block text-sm text-gray-500">May 15, 2024</span>
+                        <a href="{{ post.url | relative_url }}" class="font-semibold text-white hover:underline">{{ post.title }}</a>
+                        <span class="block text-sm text-gray-500">{{ post.date | date: "%Y-%m-%d" }}</span>
                     </div>
                 </li>
-                <li class="flex items-center">
-                    <img src="https://placehold.co/100x100/bf80a1/ffffff?text=Post+2" alt="最新文章" class="w-16 h-16 object-cover rounded-lg mr-4">
-                    <div>
-                        <a href="#" class="font-semibold text-white hover:underline">一次说走就走的徒步</a>
-                        <span class="block text-sm text-gray-500">May 14, 2024</span>
-                    </div>
-                </li>
-                <li class="flex items-center">
-                    <img src="https://placehold.co/100x100/a1bf80/ffffff?text=Post+3" alt="最新文章" class="w-16 h-16 object-cover rounded-lg mr-4">
-                        <div>
-                            <a href="#" class="font-semibold text-white hover:underline">个人作品集网站</a>
-                            <span class="block text-sm text-gray-500">May 13, 2024</span>
-                        </div>
-                    </li>
+                {% endfor %}
             </ul>
         </div>
 
         <div>
             <h3 class="font-bold font-serif text-white text-lg mb-4">标签云</h3>
             <div class="flex flex-wrap gap-2">
-                <a href="#" class="text-sm bg-gray-700 text-gray-300 px-3 py-1 rounded-full hover:bg-gray-600">技术</a>
-                <a href="#" class="text-sm bg-gray-700 text-gray-300 px-3 py-1 rounded-full hover:bg-gray-600">生活</a>
-                <a href="#" class="text-sm bg-gray-700 text-gray-300 px-3 py-1 rounded-full hover:bg-gray-600">项目</a>
-                <a href="#" class="text-sm bg-gray-700 text-gray-300 px-3 py-1 rounded-full hover:bg-gray-600">思考</a>
-                <a href="#" class="text-sm bg-gray-700 text-gray-300 px-3 py-1 rounded-full hover:bg-gray-600">评测</a>
-                <a href="#" class="text-sm bg-gray-700 text-gray-300 px-3 py-1 rounded-full hover:bg-gray-600">CSS</a>
+                <a href="#" class="text-sm bg-gray-700 text-gray-300 px-3 py-1 rounded-full hover:bg-gray-600">Python</a>
+                <a href="#" class="text-sm bg-gray-700 text-gray-300 px-3 py-1 rounded-full hover:bg-gray-600">PyTorch</a>
+                <a href="#" class="text-sm bg-gray-700 text-gray-300 px-3 py-1 rounded-full hover:bg-gray-600">C++</a>
+                <a href="#" class="text-sm bg-gray-700 text-gray-300 px-3 py-1 rounded-full hover:bg-gray-600">Docker</a>
+                <a href="#" class="text-sm bg-gray-700 text-gray-300 px-3 py-1 rounded-full hover:bg-gray-600">Algorithm</a>
+                <a href="#" class="text-sm bg-gray-700 text-gray-300 px-3 py-1 rounded-full hover:bg-gray-600">Linux</a>
+                <a href="#" class="text-sm bg-gray-700 text-gray-300 px-3 py-1 rounded-full hover:bg-gray-600">Figma</a>
+                <a href="#" class="text-sm bg-gray-700 text-gray-300 px-3 py-1 rounded-full hover:bg-gray-600">Photography</a>
+                <a href="#" class="text-sm bg-gray-700 text-gray-300 px-3 py-1 rounded-full hover:bg-gray-600">Life</a>
             </div>
         </div>
     </div>
@@ -51,8 +42,7 @@
             <span class="text-sm">&copy; 2025 个人博客. All Rights Reserved.</span>
             
             <div class="flex flex-col md:flex-row md:items-center space-y-2 md:space-y-0 md:space-x-4 mt-4 md:mt-0 text-sm">
-                <a href="tel:您的手机号" class="hover:text-white">手机: +86 138-0000-0000</a>
-                <a href="mailto:您的邮箱@example.com" class="hover:text-white">邮箱: 您的邮箱@example.com</a>
+                <a href="mailto:douzhichao2021@163.com" class="hover:text-white">邮箱: douzhichao2021@163.com</a>
                 <a href="#" class="hover:text-white">GitHub</a>
             </div>
 
