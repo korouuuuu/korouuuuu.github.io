@@ -1,10 +1,10 @@
 ---
 layout: default
-title: 关于我 - Dou Zhichao
+title: 关于我 - 窦智超
 ---
 
 <style>
-    /* 全局背景：Apple 经典的浅灰色 */
+    /* 全局背景：Apple Light */
     body {
         background-color: #F5F5F7; 
         color: #1d1d1f;
@@ -12,185 +12,155 @@ title: 关于我 - Dou Zhichao
         overflow-x: hidden;
     }
 
-    /* 隐藏默认 Footer */
-    footer#contact-info { display: none !important; }
-
-    /* --- 核心动画类 (双向可逆) --- */
-    
+    /* --- 核心动画类 --- */
     .reveal-element {
         opacity: 0;
-        transform: translateY(40px) scale(0.98);
-        transition: all 1.0s cubic-bezier(0.16, 1, 0.3, 1); /* 丝滑缓动 */
+        transform: translateY(30px);
+        transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         will-change: transform, opacity;
     }
-
-    /* 激活状态 */
     .reveal-active {
         opacity: 1;
-        transform: translateY(0) scale(1);
+        transform: translateY(0);
     }
 
-    /* 3D 卡片效果 */
+    /* --- 3D 卡片优化版 --- */
     .perspective-container { perspective: 1200px; }
+    
     .tilt-card {
         transform-style: preserve-3d;
-        transition: transform 0.2s ease-out, box-shadow 0.3s ease;
+        /* 优化：稍微加快响应速度，减少拖泥带水的感觉 */
+        transition: transform 0.1s ease-out; 
+        will-change: transform; /* 告诉浏览器该元素会变化，提前分配 GPU 资源 */
     }
 
-    /* 玻璃态与阴影 */
-    .glass-card {
-        background: rgba(255, 255, 255, 0.8);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
+    /* 优化策略：
+       不再在 tilt-card 上直接使用 backdrop-filter (毛玻璃)，
+       因为 3D 变换 + 实时模糊计算 = 掉帧。
+       改用半透明白色背景，视觉上依然干净。
+    */
+    .clean-card {
+        background: rgba(255, 255, 255, 0.85);
         border: 1px solid rgba(255, 255, 255, 0.6);
-        box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     }
-    .glass-card:hover {
-        box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+    /* 悬停时加深阴影 */
+    .clean-card:hover {
         background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     }
     
-    /* 进度条动画 */
-    .progress-bar-fill {
-        width: 0%;
-        transition: width 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+    /* 技能标签样式 */
+    .skill-tag {
+        display: inline-flex;
+        align-items: center;
+        padding: 6px 12px;
+        border-radius: 8px;
+        font-size: 0.875rem;
+        font-weight: 600;
+        transition: all 0.2s;
     }
-    .reveal-active .progress-bar-fill {
-        width: var(--target-width);
+    .skill-tag:hover {
+        transform: translateY(-2px);
     }
+
 </style>
 
-<div id="main-container" class="w-full">
+<div id="main-container" class="w-full pt-20">
 
-    <section class="min-h-[90vh] flex flex-col justify-center relative px-6 pt-32 pb-20 overflow-hidden bg-white">
+    <section class="min-h-[85vh] flex flex-col justify-center relative px-6 pb-10 overflow-hidden bg-[#F5F5F7]">
         
-        <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-blue-50/80 rounded-full blur-[100px] pointer-events-none translate-x-1/3 -translate-y-1/4"></div>
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-white rounded-full blur-[120px] pointer-events-none"></div>
 
         <div class="max-w-6xl mx-auto w-full z-10 grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
             
-            <div class="md:col-span-7 space-y-8 order-2 md:order-1">
+            <div class="md:col-span-7 space-y-8 order-2 md:order-1 text-center md:text-left">
                 <div class="reveal-element">
-                    <span class="inline-block px-3 py-1 rounded-full bg-black text-white text-xs font-bold tracking-widest uppercase mb-4">
-                        Profile
-                    </span>
-                    <h1 class="text-6xl md:text-8xl font-bold tracking-tight leading-tight text-black">
-                        Dou<br>Zhichao.
+                    <h1 class="font-bold tracking-tight leading-none text-black mb-2">
+                        <span class="text-6xl md:text-8xl block mb-2">窦智超</span>
+                        <span class="text-3xl md:text-4xl text-gray-400 font-medium block">Dou Zhichao.</span>
                     </h1>
                 </div>
                 
-                <div class="space-y-4 text-xl md:text-2xl text-gray-500 font-medium leading-relaxed reveal-element" style="transition-delay: 0.1s;">
-                    <p>
+                <div class="reveal-element space-y-4" style="transition-delay: 0.1s;">
+                    <div class="flex flex-wrap gap-3 justify-center md:justify-start">
+                        <span class="px-3 py-1 rounded-md bg-blue-100 text-blue-700 text-sm font-bold">ENTJ-T 指挥官</span>
+                        <span class="px-3 py-1 rounded-md bg-gray-200 text-gray-700 text-sm font-bold">Infinite Loop</span>
+                    </div>
+
+                    <p class="text-xl md:text-2xl text-gray-500 font-medium leading-relaxed">
                         <span class="text-gray-900">算法工程师</span> & <span class="text-gray-900">生活观察员</span>
                     </p>
                     <p class="text-lg text-gray-400">
-                        老家泰安 / 📍 定居青岛
+                        生于泰山脚下 / 📍 定居青岛
                     </p>
-                </div>
-
-                <div class="pt-4 flex flex-wrap gap-4 reveal-element" style="transition-delay: 0.2s;">
-                     <a href="#contact-anchor" class="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gray-900 text-white font-semibold hover:bg-blue-600 transition-colors">
-                        联系我
-                        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                     </a>
                 </div>
             </div>
 
-            <div class="md:col-span-5 flex justify-center md:justify-end order-1 md:order-2 perspective-container reveal-element" style="transition-delay: 0.3s;">
-                <div class="tilt-card w-64 md:w-72 aspect-[3/4] relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white rotate-3 hover:rotate-0 transition-all duration-500">
+            <div class="md:col-span-5 flex justify-center md:justify-end order-1 md:order-2 perspective-container reveal-element" style="transition-delay: 0.2s;">
+                <div class="tilt-card w-64 md:w-72 aspect-[3/4] relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white rotate-2 hover:rotate-0 transition-all duration-500 bg-gray-200">
                     <img src="{{ '/assets/images/avatar.jpg' | relative_url }}" 
                          class="w-full h-full object-cover"
                          alt="Avatar">
-                    <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-lg shadow-sm text-xs font-bold">
-                        ENTJ-T
-                    </div>
                 </div>
             </div>
         </div>
         
-        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-gray-300 animate-bounce">
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-gray-400 animate-bounce">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
         </div>
     </section>
 
 
-    <section class="py-32 bg-[#F5F5F7] relative">
+    <section class="py-24 bg-white relative">
         <div class="max-w-5xl mx-auto px-6">
             
-            <div class="mb-16 reveal-element">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">专业技能.</h2>
-                <p class="text-xl text-gray-500">硬核技术与创意工具的结合。</p>
+            <div class="mb-16 reveal-element text-center md:text-left">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Ability Map.</h2>
+                <p class="text-xl text-gray-500">左手代码逻辑，右手视觉创意。</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 perspective-container">
                 
-                <div class="tilt-card glass-card p-8 rounded-3xl reveal-element">
-                    <div class="flex items-center gap-4 mb-8">
-                        <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center">
+                <div class="tilt-card clean-card p-8 rounded-3xl reveal-element h-full">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
                         </div>
-                        <h3 class="text-2xl font-bold">Development</h3>
+                        <div>
+                            <h3 class="text-2xl font-bold">Development</h3>
+                            <p class="text-xs text-gray-400 uppercase tracking-wider">Core Strength</p>
+                        </div>
                     </div>
                     
-                    <div class="space-y-5">
-                        <div>
-                            <div class="flex justify-between text-sm font-bold mb-1">
-                                <span>Python / PyTorch</span>
-                                <span class="text-gray-400">95%</span>
-                            </div>
-                            <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
-                                <div class="h-full bg-blue-500 rounded-full progress-bar-fill" style="--target-width: 95%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-sm font-bold mb-1">
-                                <span>C++ / Docker</span>
-                                <span class="text-gray-400">85%</span>
-                            </div>
-                            <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
-                                <div class="h-full bg-blue-500 rounded-full progress-bar-fill" style="--target-width: 85%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-sm font-bold mb-1">
-                                <span>Web (HTML/JS)</span>
-                                <span class="text-gray-400">70%</span>
-                            </div>
-                            <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
-                                <div class="h-full bg-blue-500 rounded-full progress-bar-fill" style="--target-width: 70%"></div>
-                            </div>
-                        </div>
+                    <div class="flex flex-wrap gap-2 content-start">
+                        <span class="skill-tag bg-blue-50 text-blue-700 border border-blue-100">Python</span>
+                        <span class="skill-tag bg-blue-50 text-blue-700 border border-blue-100">PyTorch</span>
+                        <span class="skill-tag bg-blue-50 text-blue-700 border border-blue-100">C++</span>
+                        <span class="skill-tag bg-gray-100 text-gray-700 border border-gray-200">Docker</span>
+                        <span class="skill-tag bg-gray-100 text-gray-700 border border-gray-200">Git</span>
+                        <span class="skill-tag bg-gray-100 text-gray-700 border border-gray-200">Web Dev</span>
+                        <span class="skill-tag bg-gray-100 text-gray-700 border border-gray-200">Algorithm</span>
                     </div>
                 </div>
 
-                <div class="tilt-card glass-card p-8 rounded-3xl reveal-element" style="transition-delay: 0.2s;">
-                    <div class="flex items-center gap-4 mb-8">
-                        <div class="w-12 h-12 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center">
+                <div class="tilt-card clean-card p-8 rounded-3xl reveal-element h-full" style="transition-delay: 0.1s;">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path></svg>
                         </div>
-                        <h3 class="text-2xl font-bold">Creative</h3>
+                        <div>
+                            <h3 class="text-2xl font-bold">Creative</h3>
+                            <p class="text-xs text-gray-400 uppercase tracking-wider">Visual Arts</p>
+                        </div>
                     </div>
 
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="p-4 bg-gray-50 rounded-xl text-center hover:bg-purple-50 transition-colors">
-                            <span class="block font-bold text-gray-900">Figma</span>
-                            <span class="text-xs text-gray-500">UI/UX</span>
-                        </div>
-                        <div class="p-4 bg-gray-50 rounded-xl text-center hover:bg-blue-50 transition-colors">
-                            <span class="block font-bold text-gray-900">PS</span>
-                            <span class="text-xs text-gray-500">Image</span>
-                        </div>
-                        <div class="p-4 bg-gray-50 rounded-xl text-center hover:bg-pink-50 transition-colors">
-                            <span class="block font-bold text-gray-900">Pr</span>
-                            <span class="text-xs text-gray-500">Editing</span>
-                        </div>
-                        <div class="p-4 bg-gray-50 rounded-xl text-center hover:bg-purple-50 transition-colors">
-                            <span class="block font-bold text-gray-900">Ae</span>
-                            <span class="text-xs text-gray-500">Motion</span>
-                        </div>
-                        <div class="p-4 bg-gray-50 rounded-xl text-center col-span-2 hover:bg-gray-100 transition-colors">
-                            <span class="block font-bold text-gray-900">Git / Workflow</span>
-                            <span class="text-xs text-gray-500">Management</span>
-                        </div>
+                    <div class="flex flex-wrap gap-2 content-start">
+                        <span class="skill-tag bg-purple-50 text-purple-700 border border-purple-100">Figma</span>
+                        <span class="skill-tag bg-blue-50 text-blue-700 border border-blue-100">Photoshop</span>
+                        <span class="skill-tag bg-pink-50 text-pink-700 border border-pink-100">Premiere Pro</span>
+                        <span class="skill-tag bg-purple-50 text-purple-700 border border-purple-100">After Effects</span>
+                        <span class="skill-tag bg-gray-100 text-gray-700 border border-gray-200">Photography</span>
                     </div>
                 </div>
 
@@ -199,48 +169,47 @@ title: 关于我 - Dou Zhichao
     </section>
 
 
-    <section class="py-32 bg-white">
+    <section class="py-24 bg-[#F5F5F7]">
         <div class="max-w-6xl mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-end mb-12 reveal-element">
                 <div>
-                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-2">生活切片.</h2>
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-2">Life Slices.</h2>
                     <p class="text-xl text-gray-500">工作之外，我是谁。</p>
                 </div>
-                <span class="hidden md:block text-sm text-gray-400 font-mono">SCROLL FOR MORE -></span>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px]">
                 
-                <div class="md:col-span-2 md:row-span-1 group relative rounded-3xl overflow-hidden reveal-element">
+                <div class="md:col-span-2 md:row-span-1 group relative rounded-3xl overflow-hidden reveal-element shadow-sm">
                     <img src="{{ '/assets/images/cooking.jpg' | relative_url }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Cooking">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
-                        <h3 class="text-white text-2xl font-bold">烹饪 (Level: 鲁菜大厨)</h3>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+                        <h3 class="text-white text-2xl font-bold">鲁菜大厨</h3>
                         <p class="text-gray-200">人间烟火气，最抚凡人心。</p>
                     </div>
                 </div>
 
-                <div class="md:col-span-1 group relative rounded-3xl overflow-hidden reveal-element" style="transition-delay: 0.1s;">
+                <div class="md:col-span-1 group relative rounded-3xl overflow-hidden reveal-element shadow-sm" style="transition-delay: 0.1s;">
                     <img src="{{ '/assets/images/fishing.jpg' | relative_url }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Fishing">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
-                        <h3 class="text-white text-xl font-bold">钓鱼</h3>
-                        <p class="text-gray-200 text-sm">修身养性，愿者上钩。</p>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+                        <h3 class="text-white text-xl font-bold">空军常客</h3>
+                        <p class="text-gray-200 text-sm">"虽然经常空军，但这不影响我买装备。"</p>
                     </div>
                 </div>
 
-                <div class="md:col-span-1 group relative rounded-3xl overflow-hidden reveal-element" style="transition-delay: 0.2s;">
+                <div class="md:col-span-1 group relative rounded-3xl overflow-hidden reveal-element shadow-sm" style="transition-delay: 0.2s;">
                     <img src="{{ '/assets/images/my-hero-image.jpg' | relative_url }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Photography">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
                         <h3 class="text-white text-xl font-bold">摄影</h3>
-                        <p class="text-gray-200 text-sm">记录那些不可复制的瞬间。</p>
+                        <p class="text-gray-200 text-sm">记录不可复制的瞬间。</p>
                     </div>
                 </div>
 
-                <div class="md:col-span-2 bg-gray-100 rounded-3xl p-8 flex flex-col justify-center items-start reveal-element relative overflow-hidden" style="transition-delay: 0.3s;">
-                    <div class="absolute right-0 bottom-0 opacity-10 text-9xl transform translate-x-10 translate-y-10">🏎️</div>
+                <div class="md:col-span-2 bg-white rounded-3xl p-8 flex flex-col justify-center items-start reveal-element shadow-sm relative overflow-hidden" style="transition-delay: 0.3s;">
+                    <div class="absolute right-6 bottom-6 opacity-10 text-9xl transform rotate-12">🏎️</div>
                     <h3 class="text-3xl font-bold text-gray-900 mb-2">驾驶</h3>
-                    <p class="text-xl text-gray-600 max-w-md">
+                    <p class="text-xl text-gray-600 max-w-md z-10">
                         不仅仅是代步，更是一种掌控感。<br>
-                        <span class="inline-block mt-2 px-3 py-1 bg-black text-white text-sm rounded-full">Status: 人车合一</span>
+                        <span class="inline-block mt-3 px-3 py-1 bg-black text-white text-sm rounded-md font-bold">Status: 人车合一</span>
                     </p>
                 </div>
 
@@ -249,20 +218,19 @@ title: 关于我 - Dou Zhichao
     </section>
 
 
-    <section class="py-32 bg-[#F5F5F7]">
+    <section class="py-24 bg-white">
         <div class="max-w-3xl mx-auto px-6">
             <h2 class="text-3xl font-bold text-center mb-16 text-gray-300 tracking-widest uppercase reveal-element">History Log</h2>
             
-            <div class="border-l-2 border-gray-200 pl-8 space-y-16">
+            <div class="border-l-2 border-gray-200 pl-8 space-y-12">
                 
                 <div class="relative reveal-element">
                     <span class="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-white border-4 border-blue-500"></span>
                     <div class="flex flex-col">
                         <span class="text-4xl font-bold text-gray-900">2025</span>
-                        <span class="text-sm text-blue-600 font-bold uppercase mb-2">Milestone Unlocked</span>
-                        <h3 class="text-xl font-bold text-gray-800">解锁“赶海”成就</h3>
+                        <h3 class="text-xl font-bold text-gray-800 mt-2">解锁“赶海”成就</h3>
                         <p class="text-gray-600 mt-2 leading-relaxed">
-                            与王老师一起探索海岸线，虽然过程有些狼狈，但收获了满满的快乐（和螃蟹）。生活在青岛的乐趣之一。
+                            与王老师一起探索海岸线，收获了满满的快乐（和少许螃蟹）。
                         </p>
                     </div>
                 </div>
@@ -271,10 +239,9 @@ title: 关于我 - Dou Zhichao
                     <span class="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-white border-4 border-gray-400"></span>
                     <div class="flex flex-col">
                         <span class="text-4xl font-bold text-gray-400">2023</span>
-                        <span class="text-sm text-gray-500 font-bold uppercase mb-2">Career & Academy</span>
-                        <h3 class="text-xl font-bold text-gray-800">CVPR & 入职赛轮</h3>
+                        <h3 class="text-xl font-bold text-gray-800 mt-2">CVPR & 入职赛轮</h3>
                         <p class="text-gray-600 mt-2 leading-relaxed">
-                            发表 CVPR 顶会论文，并在同年正式入职赛轮，开启算法工程师的职业生涯。
+                            发表 CVPR 顶会论文，同年正式入职赛轮，开启算法工程师生涯。
                         </p>
                     </div>
                 </div>
@@ -283,10 +250,9 @@ title: 关于我 - Dou Zhichao
                     <span class="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-white border-4 border-gray-300"></span>
                     <div class="flex flex-col">
                         <span class="text-4xl font-bold text-gray-300">2021</span>
-                        <span class="text-sm text-gray-400 font-bold uppercase mb-2">The Beginning</span>
-                        <h3 class="text-xl font-bold text-gray-800">考研 & 恋爱</h3>
+                        <h3 class="text-xl font-bold text-gray-800 mt-2">考研 & 恋爱</h3>
                         <p class="text-gray-600 mt-2 leading-relaxed">
-                            充满幸运的一年，所有的努力都埋下了伏笔。
+                            充满幸运的一年，所有的努力都得到了最好的回报。
                         </p>
                     </div>
                 </div>
@@ -295,48 +261,28 @@ title: 关于我 - Dou Zhichao
         </div>
     </section>
 
-
-    <section id="contact-anchor" class="py-24 bg-white text-center px-6">
-        <div class="max-w-4xl mx-auto reveal-element">
-            <h2 class="text-4xl md:text-6xl font-bold text-gray-900 mb-8">保持联系.</h2>
-            <p class="text-xl text-gray-500 mb-12">
-                douzhichao2021@163.com
-            </p>
-            
-            <a href="mailto:douzhichao2021@163.com" class="inline-block bg-black text-white hover:bg-blue-600 transition-colors px-12 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 duration-300">
-                发送邮件
-            </a>
-            
-            <div class="mt-24 border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
-                <p>&copy; 2025 Dou Zhichao.</p>
-                <div class="space-x-4 mt-4 md:mt-0">
-                    <a href="#" class="hover:text-gray-900">GitHub</a>
-                    <a href="#" class="hover:text-gray-900">WeChat</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-</div>
+    </div>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. 3D 卡片微动效
+    // 3D 卡片微动效 (精简版，优化性能)
     const cards = document.querySelectorAll('.tilt-card');
     cards.forEach(card => {
         card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left; 
-            const y = e.clientY - rect.top;
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            
-            // 稍微加大一点倾斜力度
-            const rotateX = ((y - centerY) / centerY) * -8; 
-            const rotateY = ((x - centerX) / centerX) * 8;
+            // 如果你想进一步优化性能，可以使用 requestAnimationFrame
+            requestAnimationFrame(() => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left; 
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = ((y - centerY) / centerY) * -5; // 减小角度
+                const rotateY = ((x - centerX) / centerX) * 5;
 
-            card.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+                card.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.01, 1.01, 1.01)`;
+            });
         });
 
         card.addEventListener('mouseleave', () => {
@@ -344,21 +290,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 2. 双向滚动动画监听 (Reversible Animation)
+    // 双向滚动动画监听
     const observerOptions = {
         root: null,
-        threshold: 0.1, // 只要出现 10% 就触发
+        threshold: 0.1, 
         rootMargin: "0px"
     };
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // 进入视口：添加激活类 -> 播放动画
                 entry.target.classList.add('reveal-active');
             } else {
-                // 离开视口：移除激活类 -> 元素变回透明/下沉
-                // 这样下次滚动回来时，动画会再次播放
                 entry.target.classList.remove('reveal-active');
             }
         });
