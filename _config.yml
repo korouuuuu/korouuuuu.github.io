@@ -5,3 +5,9 @@ description: "在这里分享我的思考、项目与生活点滴。"
 
 # GitHub Pages 默认需要这个
 theme: jekyll-theme-minimal
+
+# 定义集合
+collections:
+  projects:
+    output: true           # 允许为每个项目生成独立的页面
+    permalink: /projects/:path/  # 项目页面的链接格式
