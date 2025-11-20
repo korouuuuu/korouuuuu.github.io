@@ -4,29 +4,37 @@ layout: default
 title: 首页 - 我的个人博客
 ---
 
-<header class="relative h-[85vh] md:h-[90vh] text-white">
+<header class="relative h-[95vh] md:h-screen text-white overflow-hidden">
 
     <div class="absolute inset-0 h-full w-full">
         <img src="{{ "/assets/images/my-hero-image.jpg" | relative_url }}" 
              onerror="this.src='https://placehold.co/1920x1080/5a5a7d/ffffff?text=Image+Missing'"
              alt="个人工作空间" 
-             class="w-full h-full object-cover">
-        <div class="absolute inset-0 bg-black opacity-40"></div>
+             class="block w-full h-full object-cover select-none">
+        
+        <div class="absolute inset-0 bg-black/40"></div>
     </div>
 
     <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
-        <h1 class="font-serif text-4xl md:text-6xl font-bold max-w-3xl leading-tight">
+        <h1 class="font-serif text-4xl md:text-6xl font-bold max-w-4xl leading-tight drop-shadow-lg">
             {{ site.title }}
         </h1>
-        <p class="mt-6 text-base md:text-lg max-w-xl opacity-90 font-light tracking-wide">{{ site.description }}</p>
         
-        <a href="#blog-section" class="mt-10 bg-white text-gray-900 px-7 py-2.5 rounded-full font-semibold text-base hover:bg-gray-200 transition-colors">
+        <p class="mt-6 text-base md:text-lg max-w-2xl opacity-90 font-light tracking-wide drop-shadow-md">
+            {{ site.description }}
+        </p>
+        
+        <a href="#blog-section" class="mt-12 bg-white/10 backdrop-blur-md border border-white/30 text-white px-8 py-3 rounded-full font-serif text-base hover:bg-white hover:text-gray-900 transition-all duration-300 shadow-lg">
             阅读博客
         </a>
+        
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-70">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+        </div>
     </div>
 </header>
 
-<section id="blog-section" class="py-16 md:py-24 bg-gray-50">
+<section id="blog-section" class="py-20 md:py-28 bg-gray-50">
     <div class="max-w-7xl mx-auto px-6">
         <div id="blog-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             
@@ -35,45 +43,48 @@ title: 首页 - 我的个人博客
             {% endfor %}
             </div>
         <div class="text-center mt-16">
-            <a href="#!" id="load-more-btn" class="bg-gray-900 text-white px-8 py-3 rounded-full font-semibold text-sm hover:bg-gray-700 transition-colors tracking-wide">加载更多</a>
+            <a href="#!" id="load-more-btn" class="inline-block bg-gray-900 text-white px-8 py-3 rounded-full font-serif text-sm hover:bg-gray-700 transition-colors tracking-widest uppercase shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                Load More
+            </a>
         </div>
     </div>
 </section>
 
-<section class="relative py-28 md:py-40 bg-cover bg-center bg-fixed" style="background-image: url('{{ "/assets/images/my-cta-texture.jpg" | relative_url }}')">
-    <div class="absolute inset-0 bg-black opacity-50"></div>
+<section class="relative py-32 md:py-48 bg-cover bg-center bg-fixed" style="background-image: url('{{ "/assets/images/my-cta-texture.jpg" | relative_url }}')">
+    <div class="absolute inset-0 bg-black/50"></div>
     <div class="relative z-10 max-w-4xl mx-auto text-center text-white px-6">
-        <h2 class="text-3xl md:text-5xl font-bold font-serif">
+        <h2 class="text-3xl md:text-5xl font-bold font-serif drop-shadow-lg">
             探索无尽的好奇心
         </h2>
-        <p class="mt-4 text-base md:text-lg opacity-90">查看我的项目或与我取得联系</p>
+        <p class="mt-4 text-base md:text-lg opacity-90 font-light">查看我的项目或与我取得联系</p>
         
-        <a href="#contact-info" class="mt-8 inline-block bg-white text-gray-900 px-8 py-3 rounded-full font-semibold text-base hover:bg-gray-200 transition-colors">
+        <a href="#contact-info" class="mt-10 inline-block bg-white text-gray-900 px-9 py-3.5 rounded-full font-serif font-bold text-base hover:bg-gray-100 transition-colors shadow-xl">
             联系我
         </a>
     </div>
 </section>
 
-<section class="py-16 md:py-24 bg-white">
+<section class="py-20 md:py-28 bg-white">
     <div class="max-w-7xl mx-auto px-6">
-        <h2 class="text-2xl md:text-3xl font-bold font-serif text-center mb-12">精选项目</h2>
+        <h2 class="text-2xl md:text-3xl font-bold font-serif text-center mb-16 tracking-tight text-gray-900">精选项目</h2>
         
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 md:gap-6">
             {% if site.data.projects %}
                 {% for project in site.data.projects %}
-                <a href="{{ project.url }}" target="_blank" class="relative block h-40 md:h-56 rounded-lg overflow-hidden shadow-lg group">
+                <a href="{{ project.url }}" target="_blank" class="relative block h-40 md:h-56 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow group">
                     <img src="{{ project.image | relative_url }}" 
                          alt="{{ project.name }}" 
                          onerror="this.src='https://placehold.co/400x400?text=Project'"
-                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-50 transition-all flex flex-col items-center justify-center p-2 text-center">
-                        <span class="text-white font-bold text-lg font-serif drop-shadow-md">{{ project.name }}</span>
+                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 text-center transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                        <span class="text-white font-bold text-sm md:text-base font-serif drop-shadow-md">{{ project.name }}</span>
                     </div>
                 </a>
                 {% endfor %}
             {% else %}
-                <div class="col-span-full text-center text-gray-400 py-10">
-                    (请在 _data/projects.yml 中配置项目)
+                <div class="col-span-full text-center text-gray-400 py-10 font-serif italic">
+                    (项目数据加载中...)
                 </div>
             {% endif %}
         </div>
