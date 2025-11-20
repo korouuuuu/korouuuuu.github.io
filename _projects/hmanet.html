@@ -1,0 +1,123 @@
+---
+layout: project
+title: "HMANet: Hybrid Multi-Axis Aggregation Network"
+description: "[CVPR 2024] 针对图像超分辨率任务提出的混合多轴聚合网络，超越 SwinIR 与 HAT 的性能表现。"
+image: "/assets/images/projects/hmanet_cover.jpg" 
+category: "Computer Vision"
+priority: 10
+---
+
+<div class="mb-16 text-center md:text-left">
+    <div class="flex flex-wrap gap-4 justify-center md:justify-start mb-6">
+        <span class="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-sm font-bold border border-blue-100">
+            CVPRW 2024
+        </span>
+        <span class="inline-flex items-center px-3 py-1 rounded-full bg-green-50 text-green-700 text-sm font-bold border border-green-100">
+            Super-Resolution
+        </span>
+        <span class="inline-flex items-center px-3 py-1 rounded-full bg-gray-50 text-gray-600 text-sm font-mono border border-gray-200">
+            PyTorch
+        </span>
+    </div>
+    
+    <div class="flex flex-col md:flex-row gap-4 justify-center md:justify-start">
+        <a href="https://github.com/korouuuuu/HMA" target="_blank" class="inline-flex items-center justify-center px-6 py-3 bg-gray-900 text-white rounded-xl font-bold hover:bg-gray-700 transition-all hover:-translate-y-1 shadow-lg hover:shadow-xl">
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" /></svg>
+            View on GitHub
+        </a>
+        <a href="https://arxiv.org/abs/2405.05001" target="_blank" class="inline-flex items-center justify-center px-6 py-3 bg-white text-gray-900 border-2 border-gray-200 rounded-xl font-bold hover:border-red-200 hover:text-red-600 hover:bg-red-50 transition-all hover:-translate-y-1">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+            Read Paper (arXiv)
+        </a>
+    </div>
+</div>
+
+<section class="mb-20">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6 font-serif flex items-center gap-2">
+        <span class="w-8 h-1 bg-blue-600 rounded-full"></span>
+        Abstract
+    </h2>
+    <div class="bg-gray-50 p-8 rounded-3xl border border-gray-100 leading-relaxed text-gray-600 shadow-sm">
+        <p class="mb-4">
+            Transformer-based methods have demonstrated excellent performance on super-resolution visual tasks. However, existing work typically restricts self-attention computation to non-overlapping windows to save computational costs, limiting the usage of input information from a restricted spatial range.
+        </p>
+        <p>
+            To address this, we propose a novel <strong>Hybrid Multi-Axis Aggregation Network (HMA)</strong>. HMA is constructed by stacking:
+        </p>
+        <ul class="list-disc pl-6 space-y-2 mt-4 font-medium text-gray-800">
+            <li><strong>Residual Hybrid Transformer Blocks (RHTB):</strong> Combines channel attention and self-attention to enhance non-local feature fusion.</li>
+            <li><strong>Grid Attention Blocks (GAB):</strong> Used for cross-domain information interaction to obtain a larger perceptual field.</li>
+        </ul>
+    </div>
+</section>
+
+<section class="mb-20">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6 font-serif flex items-center gap-2">
+        <span class="w-8 h-1 bg-purple-600 rounded-full"></span>
+        Network Architecture
+    </h2>
+    
+    <div class="rounded-2xl overflow-hidden border border-gray-200 shadow-2xl bg-white p-2 mb-6 group cursor-zoom-in">
+        <img src="/assets/images/projects/hma_arch.png" 
+             onerror="this.src='https://placehold.co/1200x600/f3f4f6/9ca3af?text=Architecture+Diagram+Missing'"
+             alt="HMANet Architecture" 
+             class="w-full h-auto rounded-xl transition-transform duration-500 group-hover:scale-[1.01]">
+    </div>
+    <p class="text-sm text-center text-gray-500 italic font-serif">
+        Figure 1: The overall architecture of our proposed HMANet.
+    </p>
+</section>
+
+<section class="mb-20">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6 font-serif flex items-center gap-2">
+        <span class="w-8 h-1 bg-orange-500 rounded-full"></span>
+        Performance
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+            <h3 class="font-bold text-lg mb-3 text-gray-800">SOTA Comparison</h3>
+            <p class="text-gray-600 mb-4">
+                We compared HMA with state-of-the-art methods (SwinIR, HAT, etc.) on benchmark datasets like Urban100.
+            </p>
+            <div class="space-y-3">
+                <div>
+                    <div class="flex justify-between text-xs font-bold mb-1"><span>HMANet (Ours)</span><span>28.xx dB</span></div>
+                    <div class="w-full bg-gray-100 rounded-full h-2"><div class="bg-blue-600 h-2 rounded-full" style="width: 100%"></div></div>
+                </div>
+                <div>
+                    <div class="flex justify-between text-xs font-bold mb-1 text-gray-500"><span>HAT</span><span>28.xx dB</span></div>
+                    <div class="w-full bg-gray-100 rounded-full h-2"><div class="bg-gray-400 h-2 rounded-full" style="width: 98%"></div></div>
+                </div>
+                <div>
+                    <div class="flex justify-between text-xs font-bold mb-1 text-gray-500"><span>SwinIR</span><span>27.81 dB</span></div>
+                    <div class="w-full bg-gray-100 rounded-full h-2"><div class="bg-gray-300 h-2 rounded-full" style="width: 95%"></div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-center">
+            <blockquote class="text-xl font-serif italic text-gray-700 leading-relaxed text-center">
+                "HMA can extend the range of utilized pixels more widely due to the introduction of the Grid Attention Block."
+            </blockquote>
+            <div class="text-center mt-4 text-sm text-gray-400">— from Supplementary Material</div>
+        </div>
+    </div>
+</section>
+
+<section class="mb-12">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6 font-serif flex items-center gap-2">
+        <span class="w-8 h-1 bg-gray-800 rounded-full"></span>
+        Citation
+    </h2>
+    <div class="relative">
+        <pre class="bg-[#1e1e1e] text-gray-300 p-6 rounded-xl overflow-x-auto text-sm font-mono shadow-inner"><code>@InProceedings{Chu_2024_CVPR,
+    author    = {Chu, Shu-Chuan and <span class="text-yellow-400 font-bold">Dou, Zhi-Chao</span> and Pan, Jeng-Shyang and Weng, Shaowei and Li, Junbao},
+    title     = {HMANet: Hybrid Multi-Axis Aggregation Network for Image Super-Resolution},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshops},
+    month     = {June},
+    year      = {2024},
+    pages     = {6386-6395}
+}</code></pre>
+        <div class="absolute top-4 right-4 text-xs text-gray-500 select-none">BibTeX</div>
+    </div>
+</section>
